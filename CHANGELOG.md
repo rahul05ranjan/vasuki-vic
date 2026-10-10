@@ -9,7 +9,7 @@ The first stable release.
 ### Added
 
 - `vasuki ask --ollama`: run the model in the Ollama on this machine, on macOS, Linux or Windows. The model is fetched into Ollama the first time.
-- VIC-2B as an 8-bit GGUF file, [`rahul05ranjan/VIC-2B-GGUF`](https://huggingface.co/rahul05ranjan/VIC-2B-GGUF), for Ollama and llama.cpp.
+- VIC-2B as an 8-bit GGUF file, [`rahul05ranjan/VIC-2B-GGUF`](https://huggingface.co/rahul05ranjan/VIC-2B-GGUF), for Ollama and llama.cpp, and in the Ollama library as [`rahuul/vic-2b`](https://ollama.com/rahuul/vic-2b).
 - Documentation in `docs/`: usage, the plan format, agents, and evaluation.
 - `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`, issue and pull request templates, and continuous integration on Linux and macOS.
 

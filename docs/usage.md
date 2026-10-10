@@ -85,6 +85,8 @@ To fetch it yourself, or to use it from another program:
 ollama pull hf.co/rahul05ranjan/VIC-2B-GGUF:Q8_0
 ```
 
+The same build is in the Ollama library as [`rahuul/vic-2b`](https://ollama.com/rahuul/vic-2b), with the system prompt stored in it. To use that copy, add `--model rahuul/vic-2b` to the `--ollama` line.
+
 Two things to know when calling the model without vasuki:
 
 - **Turn reasoning off.** Ollama turns it on by default for this model family, and a VIC model asked to reason argues with the request and returns no plan. Send `"think": false` on Ollama's own API, or `"reasoning_effort": "none"` on the OpenAI-style endpoint.

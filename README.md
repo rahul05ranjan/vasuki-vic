@@ -125,7 +125,7 @@ Every number can be reproduced: the eval sets are in [`evals/`](evals), the stor
 |---|---|
 | **Command line** | `vasuki ask`, `vasuki run`, `vasuki check`, `vasuki schema`. See [docs/usage.md](docs/usage.md) |
 | **Python** | `from vasuki import run_plan, load_table` and `from vasuki.planner import MLXPlanner, ask`. See [docs/usage.md](docs/usage.md#from-python) |
-| **Ollama** | `--ollama`, or `ollama pull hf.co/rahul05ranjan/VIC-2B-GGUF:Q8_0`. See [docs/usage.md](docs/usage.md#ollama) |
+| **Ollama** | `--ollama`. The model is also in the Ollama library as [`rahuul/vic-2b`](https://ollama.com/rahuul/vic-2b). See [docs/usage.md](docs/usage.md#ollama) |
 | **Any OpenAI-style server** | `--url http://host/v1 --model NAME` (LM Studio, llama.cpp, vLLM, a hosted model) |
 | **Coding agents** | `npx skills add rahul05ranjan/vasuki-vic` installs a skill for Claude Code, Codex, Cursor and others. See [docs/agents.md](docs/agents.md) |
 | **MCP clients** | `vasuki-mcp`, a stdio server with four tools. See [docs/agents.md](docs/agents.md#mcp-server) |
