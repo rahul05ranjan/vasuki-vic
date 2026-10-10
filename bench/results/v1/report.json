@@ -1,0 +1,5327 @@
+{
+  "runs": [
+    {
+      "file": "code__-cf-deepseek-ai-deepseek-v4-pro-0813.jsonl",
+      "arm": "code",
+      "provider": "cloudflare",
+      "model": "@cf/deepseek-ai/deepseek-v4-pro-0813",
+      "effort": "medium",
+      "system_tokens": null,
+      "answered": 236,
+      "errors_awaiting_retry": 0,
+      "tasks": 236,
+      "correct": 228,
+      "accuracy": 0.9661,
+      "accuracy_ignoring_column_names": 0.9661,
+      "outcomes": {
+        "correct": 228,
+        "wrong_result": 2,
+        "plan_error": 1,
+        "wrong_status": 5
+      },
+      "by_category": {
+        "basic": {
+          "tasks": 46,
+          "correct": 46,
+          "accuracy": 1.0
+        },
+        "derive": {
+          "tasks": 27,
+          "correct": 26,
+          "accuracy": 0.963
+        },
+        "aggregate": {
+          "tasks": 35,
+          "correct": 34,
+          "accuracy": 0.9714
+        },
+        "multi": {
+          "tasks": 43,
+          "correct": 43,
+          "accuracy": 1.0
+        },
+        "join": {
+          "tasks": 20,
+          "correct": 19,
+          "accuracy": 0.95
+        },
+        "units": {
+          "tasks": 17,
+          "correct": 17,
+          "accuracy": 1.0
+        },
+        "text_date": {
+          "tasks": 13,
+          "correct": 13,
+          "accuracy": 1.0
+        },
+        "tricky": {
+          "tasks": 16,
+          "correct": 16,
+          "accuracy": 1.0
+        },
+        "clarify": {
+          "tasks": 19,
+          "correct": 14,
+          "accuracy": 0.7368
+        }
+      },
+      "by_tag": {
+        "hinglish": {
+          "tasks": 13,
+          "correct": 13,
+          "accuracy": 1.0
+        },
+        "steps:1": {
+          "tasks": 110,
+          "correct": 108,
+          "accuracy": 0.9818
+        },
+        "steps:2-3": {
+          "tasks": 71,
+          "correct": 70,
+          "accuracy": 0.9859
+        },
+        "steps:4+": {
+          "tasks": 36,
+          "correct": 36,
+          "accuracy": 1.0
+        }
+      },
+      "tokens_per_task": {
+        "input_including_system_prompt": 678.9,
+        "output": 405.1
+      },
+      "seconds_per_task": 16.7,
+      "billed_usd_total": 0.5371,
+      "versus_delegating": {
+        "tasks_compared": 236,
+        "token_counts_from": "estimate: characters / 3.5",
+        "system_prompt_excluded": false,
+        "unit": "usd_per_1000_tasks",
+        "caller_alone": 2.686,
+        "caller_delegating": 0.339,
+        "break_even_planner_accuracy": 0.126
+      },
+      "failures": [
+        {
+          "id": "derive-010",
+          "outcome": "plan_error",
+          "detail": "TypeError: Invalid value '[ 77000.  79200. 121000.]' for dtype 'int64'"
+        },
+        {
+          "id": "aggregate-009",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "join-001",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "clarify-003",
+          "outcome": "wrong_status",
+          "detail": "wrote code, expected needs_clarification"
+        },
+        {
+          "id": "clarify-007",
+          "outcome": "wrong_status",
+          "detail": "wrote code, expected needs_clarification"
+        },
+        {
+          "id": "clarify-009",
+          "outcome": "wrong_status",
+          "detail": "wrote code, expected needs_clarification"
+        },
+        {
+          "id": "clarify-014",
+          "outcome": "wrong_status",
+          "detail": "wrote code, expected needs_clarification or unsupported"
+        },
+        {
+          "id": "clarify-017",
+          "outcome": "wrong_status",
+          "detail": "wrote code, expected needs_clarification"
+        }
+      ]
+    },
+    {
+      "file": "code__-cf-openai-gpt-oss-120b.jsonl",
+      "arm": "code",
+      "provider": "cloudflare",
+      "model": "@cf/openai/gpt-oss-120b",
+      "effort": "medium",
+      "system_tokens": null,
+      "answered": 236,
+      "errors_awaiting_retry": 0,
+      "tasks": 236,
+      "correct": 226,
+      "accuracy": 0.9576,
+      "accuracy_ignoring_column_names": 0.9576,
+      "outcomes": {
+        "correct": 226,
+        "wrong_result": 4,
+        "plan_error": 1,
+        "wrong_status": 5
+      },
+      "by_category": {
+        "basic": {
+          "tasks": 46,
+          "correct": 46,
+          "accuracy": 1.0
+        },
+        "derive": {
+          "tasks": 27,
+          "correct": 26,
+          "accuracy": 0.963
+        },
+        "aggregate": {
+          "tasks": 35,
+          "correct": 33,
+          "accuracy": 0.9429
+        },
+        "multi": {
+          "tasks": 43,
+          "correct": 42,
+          "accuracy": 0.9767
+        },
+        "join": {
+          "tasks": 20,
+          "correct": 20,
+          "accuracy": 1.0
+        },
+        "units": {
+          "tasks": 17,
+          "correct": 17,
+          "accuracy": 1.0
+        },
+        "text_date": {
+          "tasks": 13,
+          "correct": 13,
+          "accuracy": 1.0
+        },
+        "tricky": {
+          "tasks": 16,
+          "correct": 15,
+          "accuracy": 0.9375
+        },
+        "clarify": {
+          "tasks": 19,
+          "correct": 14,
+          "accuracy": 0.7368
+        }
+      },
+      "by_tag": {
+        "hinglish": {
+          "tasks": 13,
+          "correct": 13,
+          "accuracy": 1.0
+        },
+        "steps:1": {
+          "tasks": 110,
+          "correct": 106,
+          "accuracy": 0.9636
+        },
+        "steps:2-3": {
+          "tasks": 71,
+          "correct": 70,
+          "accuracy": 0.9859
+        },
+        "steps:4+": {
+          "tasks": 36,
+          "correct": 36,
+          "accuracy": 1.0
+        }
+      },
+      "tokens_per_task": {
+        "input_including_system_prompt": 637.0,
+        "output": 239.9
+      },
+      "seconds_per_task": 4.4,
+      "billed_usd_total": 0.0951,
+      "versus_delegating": {
+        "tasks_compared": 236,
+        "token_counts_from": "estimate: characters / 3.5",
+        "system_prompt_excluded": false,
+        "unit": "usd_per_1000_tasks",
+        "caller_alone": 0.452,
+        "caller_delegating": 0.078,
+        "break_even_planner_accuracy": 0.173
+      },
+      "failures": [
+        {
+          "id": "derive-002",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "aggregate-009",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "aggregate-014",
+          "outcome": "plan_error",
+          "detail": "TypeError: DataFrame.reset_index() got an unexpected keyword argument 'name'. Did you mean 'names'?"
+        },
+        {
+          "id": "multi-027",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "tricky-002",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "clarify-003",
+          "outcome": "wrong_status",
+          "detail": "wrote code, expected needs_clarification"
+        },
+        {
+          "id": "clarify-007",
+          "outcome": "wrong_status",
+          "detail": "wrote code, expected needs_clarification"
+        },
+        {
+          "id": "clarify-014",
+          "outcome": "wrong_status",
+          "detail": "wrote code, expected needs_clarification or unsupported"
+        },
+        {
+          "id": "clarify-015",
+          "outcome": "wrong_status",
+          "detail": "wrote code, expected needs_clarification or unsupported"
+        },
+        {
+          "id": "clarify-017",
+          "outcome": "wrong_status",
+          "detail": "wrote code, expected needs_clarification"
+        }
+      ]
+    },
+    {
+      "file": "code__-cf-qwen-qwen3.8-27b.jsonl",
+      "arm": "code",
+      "provider": "cloudflare",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "effort": "medium",
+      "system_tokens": null,
+      "answered": 236,
+      "errors_awaiting_retry": 0,
+      "tasks": 236,
+      "correct": 225,
+      "accuracy": 0.9534,
+      "accuracy_ignoring_column_names": 0.9576,
+      "outcomes": {
+        "correct": 225,
+        "values_only": 1,
+        "wrong_result": 2,
+        "plan_error": 4,
+        "wrong_status": 4
+      },
+      "by_category": {
+        "basic": {
+          "tasks": 46,
+          "correct": 45,
+          "accuracy": 0.9783
+        },
+        "derive": {
+          "tasks": 27,
+          "correct": 23,
+          "accuracy": 0.8519
+        },
+        "aggregate": {
+          "tasks": 35,
+          "correct": 34,
+          "accuracy": 0.9714
+        },
+        "multi": {
+          "tasks": 43,
+          "correct": 43,
+          "accuracy": 1.0
+        },
+        "join": {
+          "tasks": 20,
+          "correct": 19,
+          "accuracy": 0.95
+        },
+        "units": {
+          "tasks": 17,
+          "correct": 17,
+          "accuracy": 1.0
+        },
+        "text_date": {
+          "tasks": 13,
+          "correct": 13,
+          "accuracy": 1.0
+        },
+        "tricky": {
+          "tasks": 16,
+          "correct": 16,
+          "accuracy": 1.0
+        },
+        "clarify": {
+          "tasks": 19,
+          "correct": 15,
+          "accuracy": 0.7895
+        }
+      },
+      "by_tag": {
+        "hinglish": {
+          "tasks": 13,
+          "correct": 13,
+          "accuracy": 1.0
+        },
+        "steps:1": {
+          "tasks": 110,
+          "correct": 104,
+          "accuracy": 0.9455
+        },
+        "steps:2-3": {
+          "tasks": 71,
+          "correct": 71,
+          "accuracy": 1.0
+        },
+        "steps:4+": {
+          "tasks": 36,
+          "correct": 35,
+          "accuracy": 0.9722
+        }
+      },
+      "tokens_per_task": {
+        "input_including_system_prompt": 662.7,
+        "output": 476.4
+      },
+      "seconds_per_task": 24.1,
+      "billed_usd_total": 0.4301,
+      "versus_delegating": {
+        "tasks_compared": 236,
+        "token_counts_from": "estimate: characters / 3.5",
+        "system_prompt_excluded": false,
+        "unit": "usd_per_1000_tasks",
+        "caller_alone": 1.886,
+        "caller_delegating": 0.187,
+        "break_even_planner_accuracy": 0.099
+      },
+      "failures": [
+        {
+          "id": "basic-005",
+          "outcome": "values_only"
+        },
+        {
+          "id": "derive-009",
+          "outcome": "plan_error",
+          "detail": "TypeError: Choicelist and default value do not have a common dtype: The DType <class 'numpy.dtypes._PyFloatDType'> could not be promoted by <class 'numpy.dtypes.StrDType'>. This means that no common DType exists for the given inputs. For example they cannot be stored in a single array unless the dtype is `object`. The full list of DTypes is: (<class 'numpy.dtypes.StrDType'>, <class 'numpy.dtypes.StrDType'>, <class 'numpy.dtypes.StrDType'>, <class 'numpy.dtypes._PyFloatDType'>)"
+        },
+        {
+          "id": "derive-010",
+          "outcome": "plan_error",
+          "detail": "TypeError: Invalid value '[ 77000.  79200. 121000.]' for dtype 'int64'"
+        },
+        {
+          "id": "derive-011",
+          "outcome": "plan_error",
+          "detail": "TypeError: arg must be a list, tuple, 1-d array, or Series"
+        },
+        {
+          "id": "derive-012",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "aggregate-009",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "join-011",
+          "outcome": "plan_error",
+          "detail": "KeyError: 'total_salaries'"
+        },
+        {
+          "id": "clarify-003",
+          "outcome": "wrong_status",
+          "detail": "wrote code, expected needs_clarification"
+        },
+        {
+          "id": "clarify-009",
+          "outcome": "wrong_status",
+          "detail": "wrote code, expected needs_clarification"
+        },
+        {
+          "id": "clarify-010",
+          "outcome": "wrong_status",
+          "detail": "wrote code, expected needs_clarification"
+        },
+        {
+          "id": "clarify-014",
+          "outcome": "wrong_status",
+          "detail": "wrote code, expected needs_clarification or unsupported"
+        }
+      ]
+    },
+    {
+      "file": "code__-cf-zai-org-glm-5.3.jsonl",
+      "arm": "code",
+      "provider": "cloudflare",
+      "model": "@cf/zai-org/glm-5.3",
+      "effort": "medium",
+      "system_tokens": null,
+      "answered": 236,
+      "errors_awaiting_retry": 0,
+      "tasks": 236,
+      "correct": 231,
+      "accuracy": 0.9788,
+      "accuracy_ignoring_column_names": 0.9788,
+      "outcomes": {
+        "correct": 231,
+        "wrong_result": 2,
+        "invalid_response": 1,
+        "wrong_status": 2
+      },
+      "by_category": {
+        "basic": {
+          "tasks": 46,
+          "correct": 46,
+          "accuracy": 1.0
+        },
+        "derive": {
+          "tasks": 27,
+          "correct": 27,
+          "accuracy": 1.0
+        },
+        "aggregate": {
+          "tasks": 35,
+          "correct": 34,
+          "accuracy": 0.9714
+        },
+        "multi": {
+          "tasks": 43,
+          "correct": 43,
+          "accuracy": 1.0
+        },
+        "join": {
+          "tasks": 20,
+          "correct": 19,
+          "accuracy": 0.95
+        },
+        "units": {
+          "tasks": 17,
+          "correct": 17,
+          "accuracy": 1.0
+        },
+        "text_date": {
+          "tasks": 13,
+          "correct": 13,
+          "accuracy": 1.0
+        },
+        "tricky": {
+          "tasks": 16,
+          "correct": 16,
+          "accuracy": 1.0
+        },
+        "clarify": {
+          "tasks": 19,
+          "correct": 16,
+          "accuracy": 0.8421
+        }
+      },
+      "by_tag": {
+        "hinglish": {
+          "tasks": 13,
+          "correct": 13,
+          "accuracy": 1.0
+        },
+        "steps:1": {
+          "tasks": 110,
+          "correct": 109,
+          "accuracy": 0.9909
+        },
+        "steps:2-3": {
+          "tasks": 71,
+          "correct": 71,
+          "accuracy": 1.0
+        },
+        "steps:4+": {
+          "tasks": 36,
+          "correct": 35,
+          "accuracy": 0.9722
+        }
+      },
+      "tokens_per_task": {
+        "input_including_system_prompt": 577.4,
+        "output": 362.0
+      },
+      "seconds_per_task": 17.8,
+      "billed_usd_total": 0.5092,
+      "abnormal_stops": {
+        "length": 1
+      },
+      "versus_delegating": {
+        "tasks_compared": 236,
+        "token_counts_from": "estimate: characters / 3.5",
+        "system_prompt_excluded": false,
+        "unit": "usd_per_1000_tasks",
+        "caller_alone": 2.598,
+        "caller_delegating": 0.368,
+        "break_even_planner_accuracy": 0.141
+      },
+      "failures": [
+        {
+          "id": "aggregate-009",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "join-012",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "clarify-007",
+          "outcome": "wrong_status",
+          "detail": "wrote code, expected needs_clarification"
+        },
+        {
+          "id": "clarify-009",
+          "outcome": "wrong_status",
+          "detail": "wrote code, expected needs_clarification"
+        },
+        {
+          "id": "clarify-014",
+          "outcome": "invalid_response",
+          "detail": "no solve() code block and no status object (invalid_plan)"
+        }
+      ]
+    },
+    {
+      "file": "plan__-cf-deepseek-ai-deepseek-v4-pro-0813.jsonl",
+      "arm": "plan",
+      "provider": "cloudflare",
+      "model": "@cf/deepseek-ai/deepseek-v4-pro-0813",
+      "effort": "medium",
+      "system_tokens": null,
+      "answered": 250,
+      "errors_awaiting_retry": 0,
+      "tasks": 250,
+      "correct": 234,
+      "accuracy": 0.936,
+      "accuracy_ignoring_column_names": 0.936,
+      "outcomes": {
+        "correct": 234,
+        "wrong_result": 4,
+        "plan_error": 2,
+        "wrong_status": 10
+      },
+      "by_category": {
+        "basic": {
+          "tasks": 46,
+          "correct": 46,
+          "accuracy": 1.0
+        },
+        "derive": {
+          "tasks": 27,
+          "correct": 27,
+          "accuracy": 1.0
+        },
+        "aggregate": {
+          "tasks": 35,
+          "correct": 34,
+          "accuracy": 0.9714
+        },
+        "multi": {
+          "tasks": 43,
+          "correct": 42,
+          "accuracy": 0.9767
+        },
+        "join": {
+          "tasks": 20,
+          "correct": 17,
+          "accuracy": 0.85
+        },
+        "units": {
+          "tasks": 17,
+          "correct": 17,
+          "accuracy": 1.0
+        },
+        "text_date": {
+          "tasks": 13,
+          "correct": 13,
+          "accuracy": 1.0
+        },
+        "tricky": {
+          "tasks": 16,
+          "correct": 15,
+          "accuracy": 0.9375
+        },
+        "clarify": {
+          "tasks": 19,
+          "correct": 16,
+          "accuracy": 0.8421
+        },
+        "unsupported": {
+          "tasks": 14,
+          "correct": 7,
+          "accuracy": 0.5
+        }
+      },
+      "by_tag": {
+        "hinglish": {
+          "tasks": 14,
+          "correct": 13,
+          "accuracy": 0.9286
+        },
+        "steps:1": {
+          "tasks": 110,
+          "correct": 109,
+          "accuracy": 0.9909
+        },
+        "steps:2-3": {
+          "tasks": 71,
+          "correct": 66,
+          "accuracy": 0.9296
+        },
+        "steps:4+": {
+          "tasks": 36,
+          "correct": 36,
+          "accuracy": 1.0
+        }
+      },
+      "tokens_per_task": {
+        "input_including_system_prompt": 2879.7,
+        "output": 556.4
+      },
+      "seconds_per_task": 20.1,
+      "billed_usd_total": 0.969,
+      "failures": [
+        {
+          "id": "aggregate-012",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "multi-027",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "join-001",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "join-005",
+          "outcome": "plan_error",
+          "detail": "unknown_column: unknown column 'customer_id_right', did you mean 'customer_id'? (available: order_id, customer_id, placed_on, status, items, unit_price, discount_pct, channel, name, city, tier, joined_on)"
+        },
+        {
+          "id": "join-009",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "tricky-016",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `supplier is not null`: unsupported comparison IsNot"
+        },
+        {
+          "id": "clarify-003",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected needs_clarification"
+        },
+        {
+          "id": "clarify-014",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected needs_clarification or unsupported"
+        },
+        {
+          "id": "clarify-017",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected needs_clarification"
+        },
+        {
+          "id": "unsupported-003",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        },
+        {
+          "id": "unsupported-006",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        },
+        {
+          "id": "unsupported-007",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        },
+        {
+          "id": "unsupported-009",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        },
+        {
+          "id": "unsupported-010",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        },
+        {
+          "id": "unsupported-013",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        },
+        {
+          "id": "unsupported-014",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        }
+      ]
+    },
+    {
+      "file": "plan__-cf-ibm-granite-granite-4.0-h-micro.jsonl",
+      "arm": "plan",
+      "provider": "cloudflare",
+      "model": "@cf/ibm-granite/granite-4.0-h-micro",
+      "effort": "medium",
+      "system_tokens": null,
+      "answered": 250,
+      "errors_awaiting_retry": 0,
+      "tasks": 250,
+      "correct": 3,
+      "accuracy": 0.012,
+      "accuracy_ignoring_column_names": 0.012,
+      "outcomes": {
+        "correct": 3,
+        "wrong_result": 2,
+        "plan_error": 6,
+        "invalid_response": 237,
+        "wrong_status": 2
+      },
+      "by_category": {
+        "basic": {
+          "tasks": 46,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "derive": {
+          "tasks": 27,
+          "correct": 1,
+          "accuracy": 0.037
+        },
+        "aggregate": {
+          "tasks": 35,
+          "correct": 1,
+          "accuracy": 0.0286
+        },
+        "multi": {
+          "tasks": 43,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "join": {
+          "tasks": 20,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "units": {
+          "tasks": 17,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "text_date": {
+          "tasks": 13,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "tricky": {
+          "tasks": 16,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "clarify": {
+          "tasks": 19,
+          "correct": 1,
+          "accuracy": 0.0526
+        },
+        "unsupported": {
+          "tasks": 14,
+          "correct": 0,
+          "accuracy": 0.0
+        }
+      },
+      "by_tag": {
+        "hinglish": {
+          "tasks": 14,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "steps:1": {
+          "tasks": 110,
+          "correct": 2,
+          "accuracy": 0.0182
+        },
+        "steps:2-3": {
+          "tasks": 71,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "steps:4+": {
+          "tasks": 36,
+          "correct": 0,
+          "accuracy": 0.0
+        }
+      },
+      "tokens_per_task": {
+        "input_including_system_prompt": 2597.5,
+        "output": 479.7
+      },
+      "seconds_per_task": 14.0,
+      "billed_usd_total": 0.0245,
+      "failures": [
+        {
+          "id": "basic-001",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-002",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-003",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-004",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-005",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-007",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-008",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `row['placed_on'] == max(row['placed_on']) or row['placed_on'] == second_max(row['placed_on']) or row['placed_on'] == third_max(row['placed_on'])`: unsupported syntax (Subscript)"
+        },
+        {
+          "id": "basic-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-010",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-011",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-012",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-013",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-014",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-017",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-018",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-019",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-020",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-021",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-022",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-023",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `row.battery_mv <= row.battery_mv`: unsupported syntax (Attribute)"
+        },
+        {
+          "id": "basic-024",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-025",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-026",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-027",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-028",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-029",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-030",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-031",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-032",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "basic-033",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-034",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-035",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-036",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-037",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-038",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-039",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-040",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-041",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-042",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-043",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-044",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-045",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-046",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-001",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-002",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-003",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-004",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-005",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `discount_pct is not null or discount_pct != null`: unsupported comparison IsNot"
+        },
+        {
+          "id": "derive-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-007",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-008",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-010",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-011",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-012",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-013",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-014",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-017",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-018",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-019",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-020",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-021",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-022",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-023",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-024",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-025",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-026",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-027",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-001",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'orders'"
+        },
+        {
+          "id": "aggregate-002",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-003",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-004",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-005",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-007",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-008",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-010",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-011",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-012",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-013",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-014",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].metrics[1]: unknown field 'coalesce' (available: as, fn, column)"
+        },
+        {
+          "id": "aggregate-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-017",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-018",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'group_by' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "aggregate-019",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-021",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-022",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-023",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-024",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-025",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-026",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-027",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-028",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-029",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-030",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `metrics`"
+        },
+        {
+          "id": "aggregate-031",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-032",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-033",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-034",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-035",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-001",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-002",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-003",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-004",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].n: expected integer, got null"
+        },
+        {
+          "id": "multi-005",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-007",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-008",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-010",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-011",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-012",
+          "outcome": "plan_error",
+          "detail": "unit_error: unknown unit 'int', did you mean 'in'? (available: mm, cm, m, km, in, ft, yd, mi, mg, g, kg, t, oz, lb, ms, s, min, h, day, B, KB, MB, GB, TB, KiB, MiB, GiB, TiB, fraction, percent, bps, K, C, F)"
+        },
+        {
+          "id": "multi-013",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "multi-014",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-017",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-018",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-019",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-020",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-021",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-022",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-023",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-024",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-025",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-026",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-027",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-028",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'count' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "multi-029",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-030",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-031",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-032",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-033",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-034",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-035",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-036",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-037",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'columns' (available: op, input, as, group_by, metrics)"
+        },
+        {
+          "id": "multi-038",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-039",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-040",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-041",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-042",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-043",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-001",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-002",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-003",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-004",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-005",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-007",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'join' (available: orders, customers, c)"
+        },
+        {
+          "id": "join-008",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-010",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-011",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-012",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-013",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-014",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-017",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-018",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-019",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-020",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-001",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-002",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $: missing required field `steps`"
+        },
+        {
+          "id": "units-003",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-004",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-005",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-007",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-008",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[1]: missing required field `from`"
+        },
+        {
+          "id": "units-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-010",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-011",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-012",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-013",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-014",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-017",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "text_date-001",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "text_date-002",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "text_date-003",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "text_date-004",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "text_date-005",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "text_date-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps: needs at least 1 item(s)"
+        },
+        {
+          "id": "text_date-007",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "text_date-008",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "text_date-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "text_date-010",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "text_date-011",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "text_date-012",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "text_date-013",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-001",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-002",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-003",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-004",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-005",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-007",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-008",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-010",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-011",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-012",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-013",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-014",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-001",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-002",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-003",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-004",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-007",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-008",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-010",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-011",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-012",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-013",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-014",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-017",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-018",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-019",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "unsupported-001",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "unsupported-002",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        },
+        {
+          "id": "unsupported-003",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "unsupported-004",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "unsupported-005",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "unsupported-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "unsupported-007",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "unsupported-008",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        },
+        {
+          "id": "unsupported-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "unsupported-010",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "unsupported-011",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "unsupported-012",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "unsupported-013",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "unsupported-014",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'columns' (available: op, input, as, group_by, metrics)"
+        }
+      ]
+    },
+    {
+      "file": "plan__-cf-meta-llama-3.2-1b-instruct.jsonl",
+      "arm": "plan",
+      "provider": "cloudflare",
+      "model": "@cf/meta/llama-3.2-1b-instruct",
+      "effort": "medium",
+      "system_tokens": null,
+      "answered": 250,
+      "errors_awaiting_retry": 0,
+      "tasks": 250,
+      "correct": 9,
+      "accuracy": 0.036,
+      "accuracy_ignoring_column_names": 0.036,
+      "outcomes": {
+        "correct": 9,
+        "plan_error": 4,
+        "invalid_response": 152,
+        "wrong_status": 85
+      },
+      "by_category": {
+        "basic": {
+          "tasks": 46,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "derive": {
+          "tasks": 27,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "aggregate": {
+          "tasks": 35,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "multi": {
+          "tasks": 43,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "join": {
+          "tasks": 20,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "units": {
+          "tasks": 17,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "text_date": {
+          "tasks": 13,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "tricky": {
+          "tasks": 16,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "clarify": {
+          "tasks": 19,
+          "correct": 8,
+          "accuracy": 0.4211
+        },
+        "unsupported": {
+          "tasks": 14,
+          "correct": 1,
+          "accuracy": 0.0714
+        }
+      },
+      "by_tag": {
+        "hinglish": {
+          "tasks": 14,
+          "correct": 1,
+          "accuracy": 0.0714
+        },
+        "steps:1": {
+          "tasks": 110,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "steps:2-3": {
+          "tasks": 71,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "steps:4+": {
+          "tasks": 36,
+          "correct": 0,
+          "accuracy": 0.0
+        }
+      },
+      "tokens_per_task": {
+        "input_including_system_prompt": 2599.4,
+        "output": 445.4
+      },
+      "seconds_per_task": 11.7,
+      "billed_usd_total": 0.0399,
+      "failures": [
+        {
+          "id": "basic-001",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "basic-002",
+          "outcome": "wrong_status",
+          "detail": "got 'unsupported', expected plan"
+        },
+        {
+          "id": "basic-003",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-004",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `by`"
+        },
+        {
+          "id": "basic-005",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-006",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-007",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-008",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].by[0]: expected object, got str"
+        },
+        {
+          "id": "basic-009",
+          "outcome": "wrong_status",
+          "detail": "got 'unsupported', expected plan"
+        },
+        {
+          "id": "basic-010",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $: unknown field 'reason' (available: status, question, missing)"
+        },
+        {
+          "id": "basic-011",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "basic-012",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "basic-013",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-014",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[2].by[0]: expected object, got str"
+        },
+        {
+          "id": "basic-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $: unknown field 'answer' (available: status, question, missing)"
+        },
+        {
+          "id": "basic-017",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'where' (available: op, input, as, columns)"
+        },
+        {
+          "id": "basic-018",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `columns`"
+        },
+        {
+          "id": "basic-019",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-020",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-021",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-022",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'where' (available: op, input, as, columns)"
+        },
+        {
+          "id": "basic-023",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-024",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'columns' (available: op, input, as, where)"
+        },
+        {
+          "id": "basic-025",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'columns' (available: op, input, as, where)"
+        },
+        {
+          "id": "basic-026",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'additionalProperties' (available: op, input, as, where)"
+        },
+        {
+          "id": "basic-027",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-028",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-029",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].columns: expected object, got list"
+        },
+        {
+          "id": "basic-030",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $: unknown field 'additionalProperties' (available: status, question, missing)"
+        },
+        {
+          "id": "basic-031",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "basic-032",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-033",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-034",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-035",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].by[0]: expected object, got str"
+        },
+        {
+          "id": "basic-036",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'keep' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "basic-037",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $: unknown field 'reason' (available: status, question, missing)"
+        },
+        {
+          "id": "basic-038",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.missing[0]: expected string, got object"
+        },
+        {
+          "id": "basic-039",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-040",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-041",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'where' (available: op, input, as, columns)"
+        },
+        {
+          "id": "basic-042",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-043",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-044",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-045",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "basic-046",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'keep' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "derive-001",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `expr`"
+        },
+        {
+          "id": "derive-002",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'round' (available: op, input, as, columns)"
+        },
+        {
+          "id": "derive-003",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'items == 0' (available: orders)"
+        },
+        {
+          "id": "derive-004",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-005",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'discount_pct is null' (available: orders)"
+        },
+        {
+          "id": "derive-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'additionalProperties' (available: op, input, as, where)"
+        },
+        {
+          "id": "derive-007",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'keep' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "derive-008",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "derive-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-010",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "derive-011",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "derive-012",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-013",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].where: expected string, got null"
+        },
+        {
+          "id": "derive-014",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'group_by' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "derive-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].where: expected string, got object"
+        },
+        {
+          "id": "derive-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: each step must be an object with an `op`"
+        },
+        {
+          "id": "derive-017",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[2].columns: expected object, got list"
+        },
+        {
+          "id": "derive-018",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "derive-019",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "derive-020",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[2].columns.columns: expected string, got object"
+        },
+        {
+          "id": "derive-021",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[1]: missing required field `column`"
+        },
+        {
+          "id": "derive-022",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'divide' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "derive-023",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `columns`"
+        },
+        {
+          "id": "derive-024",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "derive-025",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "derive-026",
+          "outcome": "wrong_status",
+          "detail": "got 'unsupported', expected plan"
+        },
+        {
+          "id": "derive-027",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'keep' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "aggregate-001",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'keep' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "aggregate-002",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'additionalProperties' (available: op, input, as, columns)"
+        },
+        {
+          "id": "aggregate-003",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "aggregate-004",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.missing[0]: expected string, got object"
+        },
+        {
+          "id": "aggregate-005",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-006",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'keep' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "aggregate-007",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "aggregate-008",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-010",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'keep' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "aggregate-011",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "aggregate-012",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "aggregate-013",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'columns' (available: op, input, as, where)"
+        },
+        {
+          "id": "aggregate-014",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'where' (available: op, input, as, columns)"
+        },
+        {
+          "id": "aggregate-015",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'where math > 80 and science > 70' (available: students)"
+        },
+        {
+          "id": "aggregate-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-017",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].as: expected string, got null"
+        },
+        {
+          "id": "aggregate-018",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "aggregate-019",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'where' (available: shipments)"
+        },
+        {
+          "id": "aggregate-020",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "aggregate-021",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "aggregate-022",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "aggregate-023",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "aggregate-024",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'additionalProperties' (available: op, input, as, where)"
+        },
+        {
+          "id": "aggregate-025",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "aggregate-026",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "aggregate-027",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $: unknown field 'additionalProperties' (available: status, question, missing)"
+        },
+        {
+          "id": "aggregate-028",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "aggregate-029",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "aggregate-030",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'group_by' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "aggregate-031",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "aggregate-032",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'keep' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "aggregate-033",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'group_by' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "aggregate-034",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "aggregate-035",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "multi-001",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "multi-002",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-003",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'keep' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "multi-004",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "multi-005",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "multi-006",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "multi-007",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "multi-008",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'keep' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "multi-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-010",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "multi-011",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "multi-012",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "multi-013",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "multi-014",
+          "outcome": "wrong_status",
+          "detail": "got 'unsupported', expected plan"
+        },
+        {
+          "id": "multi-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'columns' (available: op, input, as, where)"
+        },
+        {
+          "id": "multi-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'where' (available: op, input, as, columns)"
+        },
+        {
+          "id": "multi-017",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "multi-018",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'where' (available: op, input, as, columns)"
+        },
+        {
+          "id": "multi-019",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].columns: expected array, got object"
+        },
+        {
+          "id": "multi-020",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "multi-021",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "multi-022",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'additionalProperties' (available: op, input, as, where)"
+        },
+        {
+          "id": "multi-023",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-024",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "multi-025",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'order_by' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "multi-026",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'additionalProperties' (available: op, input, as, where)"
+        },
+        {
+          "id": "multi-027",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "multi-028",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'group_by' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "multi-029",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'additionalProperties' (available: op, input, as, where)"
+        },
+        {
+          "id": "multi-030",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "multi-031",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $: unknown field '$schema' (available: status, steps)"
+        },
+        {
+          "id": "multi-032",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].input: must not be empty"
+        },
+        {
+          "id": "multi-033",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `where`"
+        },
+        {
+          "id": "multi-034",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "multi-035",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `columns`"
+        },
+        {
+          "id": "multi-036",
+          "outcome": "wrong_status",
+          "detail": "got 'unsupported', expected plan"
+        },
+        {
+          "id": "multi-037",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-038",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'group', did you mean 'drop'? (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "multi-039",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'where' (available: op, input, as, columns)"
+        },
+        {
+          "id": "multi-040",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-041",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "multi-042",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'additionalProperties' (available: op, input, as, where)"
+        },
+        {
+          "id": "multi-043",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-001",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "join-002",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'additionalProperties' (available: op, input, as, where)"
+        },
+        {
+          "id": "join-003",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "join-004",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'additionalProperties' (available: op, input, as, where)"
+        },
+        {
+          "id": "join-005",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `columns`"
+        },
+        {
+          "id": "join-006",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "join-007",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "join-008",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'group_by' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "join-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'additionalProperties' (available: op, input, as, where)"
+        },
+        {
+          "id": "join-010",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "join-011",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[1]: missing required field `columns`"
+        },
+        {
+          "id": "join-012",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $: unknown field 'reason' (available: status, question, missing)"
+        },
+        {
+          "id": "join-013",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "join-014",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "join-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'where' (available: op, input, as, columns)"
+        },
+        {
+          "id": "join-016",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "join-017",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[3]: missing required field `column`"
+        },
+        {
+          "id": "join-018",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-019",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "join-020",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "units-001",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `columns`"
+        },
+        {
+          "id": "units-002",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'add' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "units-003",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].columns: expected object, got null"
+        },
+        {
+          "id": "units-004",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "units-005",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "units-006",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "units-007",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-008",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'expr' (available: op, input, as, columns)"
+        },
+        {
+          "id": "units-009",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[1]: missing required field `columns`"
+        },
+        {
+          "id": "units-010",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "units-011",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "units-012",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].input: expected string, got object"
+        },
+        {
+          "id": "units-013",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "units-014",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "units-015",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "units-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-017",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'add' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "text_date-001",
+          "outcome": "wrong_status",
+          "detail": "got 'unsupported', expected plan"
+        },
+        {
+          "id": "text_date-002",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "text_date-003",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $: unknown field 'additionalProperties' (available: status, question, missing)"
+        },
+        {
+          "id": "text_date-004",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'additionalProperties' (available: op, input, as, where)"
+        },
+        {
+          "id": "text_date-005",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].input: expected string, got null"
+        },
+        {
+          "id": "text_date-006",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[1]: missing required field `columns`"
+        },
+        {
+          "id": "text_date-007",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "text_date-008",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "text_date-009",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "text_date-010",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "text_date-011",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "text_date-012",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "text_date-013",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `where`"
+        },
+        {
+          "id": "tricky-001",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'group_by' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "tricky-002",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "tricky-003",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `by`"
+        },
+        {
+          "id": "tricky-004",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "tricky-005",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `columns`"
+        },
+        {
+          "id": "tricky-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].input: expected string, got object"
+        },
+        {
+          "id": "tricky-007",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'avg' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "tricky-008",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'groupby' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "tricky-009",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "tricky-010",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "tricky-011",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "tricky-012",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "tricky-013",
+          "outcome": "wrong_status",
+          "detail": "got 'unsupported', expected plan"
+        },
+        {
+          "id": "tricky-014",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "tricky-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-016",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "clarify-001",
+          "outcome": "wrong_status",
+          "detail": "got 'unsupported', expected needs_clarification"
+        },
+        {
+          "id": "clarify-005",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'additionalProperties' (available: op, input, as, where)"
+        },
+        {
+          "id": "clarify-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'additionalProperties' (available: op, input, as, where)"
+        },
+        {
+          "id": "clarify-007",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $: unknown field 'missing' (available: status, reason)"
+        },
+        {
+          "id": "clarify-008",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $: unknown field 'required' (available: status, question, missing)"
+        },
+        {
+          "id": "clarify-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'where' (available: op, input, as, columns)"
+        },
+        {
+          "id": "clarify-012",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "clarify-013",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $: unknown field 'additionalProperties' (available: status, question, missing)"
+        },
+        {
+          "id": "clarify-014",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.missing[0]: expected string, got object"
+        },
+        {
+          "id": "clarify-019",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'additionalProperties' (available: op, input, as, where)"
+        },
+        {
+          "id": "unsupported-001",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        },
+        {
+          "id": "unsupported-002",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $: missing required field `question`"
+        },
+        {
+          "id": "unsupported-003",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        },
+        {
+          "id": "unsupported-004",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        },
+        {
+          "id": "unsupported-005",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'columns' (available: op, input, as, where)"
+        },
+        {
+          "id": "unsupported-006",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "unsupported-007",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "unsupported-008",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        },
+        {
+          "id": "unsupported-009",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        },
+        {
+          "id": "unsupported-010",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'additionalProperties' (available: op, input, as, where)"
+        },
+        {
+          "id": "unsupported-011",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $: unknown field 'reason' (available: status, question, missing)"
+        },
+        {
+          "id": "unsupported-012",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'keep' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "unsupported-013",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `where`"
+        }
+      ]
+    },
+    {
+      "file": "plan__-cf-meta-llama-3.2-3b-instruct.jsonl",
+      "arm": "plan",
+      "provider": "cloudflare",
+      "model": "@cf/meta/llama-3.2-3b-instruct",
+      "effort": "medium",
+      "system_tokens": null,
+      "answered": 250,
+      "errors_awaiting_retry": 0,
+      "tasks": 250,
+      "correct": 12,
+      "accuracy": 0.048,
+      "accuracy_ignoring_column_names": 0.048,
+      "outcomes": {
+        "correct": 12,
+        "wrong_result": 3,
+        "plan_error": 107,
+        "invalid_response": 114,
+        "wrong_status": 14
+      },
+      "by_category": {
+        "basic": {
+          "tasks": 46,
+          "correct": 5,
+          "accuracy": 0.1087
+        },
+        "derive": {
+          "tasks": 27,
+          "correct": 1,
+          "accuracy": 0.037
+        },
+        "aggregate": {
+          "tasks": 35,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "multi": {
+          "tasks": 43,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "join": {
+          "tasks": 20,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "units": {
+          "tasks": 17,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "text_date": {
+          "tasks": 13,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "tricky": {
+          "tasks": 16,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "clarify": {
+          "tasks": 19,
+          "correct": 6,
+          "accuracy": 0.3158
+        },
+        "unsupported": {
+          "tasks": 14,
+          "correct": 0,
+          "accuracy": 0.0
+        }
+      },
+      "by_tag": {
+        "hinglish": {
+          "tasks": 14,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "steps:1": {
+          "tasks": 110,
+          "correct": 6,
+          "accuracy": 0.0545
+        },
+        "steps:2-3": {
+          "tasks": 71,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "steps:4+": {
+          "tasks": 36,
+          "correct": 0,
+          "accuracy": 0.0
+        }
+      },
+      "tokens_per_task": {
+        "input_including_system_prompt": 2618.4,
+        "output": 103.2
+      },
+      "seconds_per_task": 0.9,
+      "billed_usd_total": 0.042,
+      "abnormal_stops": {
+        "length": 1
+      },
+      "failures": [
+        {
+          "id": "basic-001",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'cancelled' (available: orders)"
+        },
+        {
+          "id": "basic-002",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'orders'"
+        },
+        {
+          "id": "basic-005",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'order_id, status, channel' (available: orders)"
+        },
+        {
+          "id": "basic-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].input: must not be empty"
+        },
+        {
+          "id": "basic-008",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'columns' (available: op, input, as, by)"
+        },
+        {
+          "id": "basic-009",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `discount_pct=0`: syntax error: invalid syntax"
+        },
+        {
+          "id": "basic-010",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `placed_on LIKE '%2026-02%'`: syntax error: invalid syntax"
+        },
+        {
+          "id": "basic-011",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'customers'"
+        },
+        {
+          "id": "basic-012",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].by[0]: expected object, got str"
+        },
+        {
+          "id": "basic-013",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'columns' (available: op, input, as, where)"
+        },
+        {
+          "id": "basic-014",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `manager_id is null`: unsupported comparison Is"
+        },
+        {
+          "id": "basic-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-017",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].as: must not be empty"
+        },
+        {
+          "id": "basic-018",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].columns.manager_id: must not be empty"
+        },
+        {
+          "id": "basic-019",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].input: must not be empty"
+        },
+        {
+          "id": "basic-020",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'readings'"
+        },
+        {
+          "id": "basic-021",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `temp_c is null`: unsupported comparison Is"
+        },
+        {
+          "id": "basic-022",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "basic-023",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'battery_mv' (available: readings)"
+        },
+        {
+          "id": "basic-024",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'columns' (available: op, input, as, where)"
+        },
+        {
+          "id": "basic-025",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'NorthStar shipments that weigh more than 100 lb.'"
+        },
+        {
+          "id": "basic-026",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `origin=\"Austin\" or destination=\"Austin\"`: syntax error: invalid syntax"
+        },
+        {
+          "id": "basic-027",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `columns`"
+        },
+        {
+          "id": "basic-028",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'section' (available: students)"
+        },
+        {
+          "id": "basic-029",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].input: must not be empty"
+        },
+        {
+          "id": "basic-030",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'missing_scores'"
+        },
+        {
+          "id": "basic-031",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].input: must not be empty"
+        },
+        {
+          "id": "basic-032",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].input: must not be empty"
+        },
+        {
+          "id": "basic-033",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'requests'"
+        },
+        {
+          "id": "basic-034",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "basic-035",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].by[0]: expected object, got str"
+        },
+        {
+          "id": "basic-036",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `on_hand=0`: syntax error: invalid syntax"
+        },
+        {
+          "id": "basic-038",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'unit_cost' (available: stock)"
+        },
+        {
+          "id": "basic-039",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'Items at or below their reorder level.'"
+        },
+        {
+          "id": "basic-040",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `cancelled_on is null`: unsupported comparison Is"
+        },
+        {
+          "id": "basic-041",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].input: must not be empty"
+        },
+        {
+          "id": "basic-042",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'card_expenses'"
+        },
+        {
+          "id": "basic-043",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'Trips longer than 15 km.' (available: trips)"
+        },
+        {
+          "id": "basic-044",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "basic-045",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "basic-046",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'output'"
+        },
+        {
+          "id": "derive-001",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'gross' (available: orders)"
+        },
+        {
+          "id": "derive-002",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'to' (available: op, input, as, column, expr)"
+        },
+        {
+          "id": "derive-003",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'orders'"
+        },
+        {
+          "id": "derive-004",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `if items >= 4, 'bulk', 'regular'`: syntax error: invalid syntax"
+        },
+        {
+          "id": "derive-005",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'column' (available: op, input, as, where)"
+        },
+        {
+          "id": "derive-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-007",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'salary' (available: employees)"
+        },
+        {
+          "id": "derive-008",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'monthly_salary' (available: employees)"
+        },
+        {
+          "id": "derive-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[3].input: must not be empty"
+        },
+        {
+          "id": "derive-010",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'expr' (available: op, input, as, column, to)"
+        },
+        {
+          "id": "derive-011",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-012",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-013",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-014",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'best' (available: students)"
+        },
+        {
+          "id": "derive-015",
+          "outcome": "plan_error",
+          "detail": "unknown_column: unknown column 'battery_status', did you mean 'battery_mv'? (available: reading_id, device, taken_at, temp_c, humidity_pct, battery_mv, uptime_s)"
+        },
+        {
+          "id": "derive-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'to' (available: op, input, as, column, expr)"
+        },
+        {
+          "id": "derive-017",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `delivered_on is not null`: unsupported comparison IsNot"
+        },
+        {
+          "id": "derive-018",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-020",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'stock_value', did you mean 'stock'? (available: stock)"
+        },
+        {
+          "id": "derive-021",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'keys' (available: op, input, as, column, expr)"
+        },
+        {
+          "id": "derive-022",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'to' (available: op, input, as, column, expr)"
+        },
+        {
+          "id": "derive-023",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'total_paid' (available: trips)"
+        },
+        {
+          "id": "derive-024",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'yearly_fee' (available: subscriptions)"
+        },
+        {
+          "id": "derive-025",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "derive-026",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'expenses'"
+        },
+        {
+          "id": "derive-027",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'columns' (available: op, input, as, where)"
+        },
+        {
+          "id": "aggregate-001",
+          "outcome": "plan_error",
+          "detail": "unknown_column: unknown column 'orders', did you mean 'order_id'? (available: order_id, customer_id, placed_on, status, items, unit_price, discount_pct, channel)"
+        },
+        {
+          "id": "aggregate-002",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'total_items' (available: orders)"
+        },
+        {
+          "id": "aggregate-003",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `columns`"
+        },
+        {
+          "id": "aggregate-004",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'customers' (available: orders)"
+        },
+        {
+          "id": "aggregate-005",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'customer_id, count(order_id) as orders, max(unit_price) as max_price' (available: orders)"
+        },
+        {
+          "id": "aggregate-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "aggregate-007",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'headcount, payroll' (available: employees)"
+        },
+        {
+          "id": "aggregate-008",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'median_salary' (available: employees)"
+        },
+        {
+          "id": "aggregate-009",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0].metrics[0]: missing required field `as`"
+        },
+        {
+          "id": "aggregate-010",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0].metrics[0]: missing required field `as`"
+        },
+        {
+          "id": "aggregate-011",
+          "outcome": "plan_error",
+          "detail": "unknown_column: unknown column 'max(salary) as max_salary, min(salary) as min_salary' (available: emp_id, name, dept, role, salary, bonus_pct, manager_id, start_date, city)"
+        },
+        {
+          "id": "aggregate-012",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'Column with_bonus.' (available: employees)"
+        },
+        {
+          "id": "aggregate-013",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'columns' (available: op, input, as, where)"
+        },
+        {
+          "id": "aggregate-014",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'section, students, with_english.' (available: students)"
+        },
+        {
+          "id": "aggregate-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].input: must not be empty"
+        },
+        {
+          "id": "aggregate-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].as: must not be empty"
+        },
+        {
+          "id": "aggregate-017",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].metrics[1].fn: must be one of 'count', 'count_distinct', 'sum', 'mean', 'median', 'min', 'max', got 'avg'"
+        },
+        {
+          "id": "aggregate-018",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].input: must not be empty"
+        },
+        {
+          "id": "aggregate-019",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'total_cost' (available: shipments)"
+        },
+        {
+          "id": "aggregate-020",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].as: must not be empty"
+        },
+        {
+          "id": "aggregate-021",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'avg_distance' (available: shipments)"
+        },
+        {
+          "id": "aggregate-022",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'requests'"
+        },
+        {
+          "id": "aggregate-023",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'Per host: request count and average latency (requests, avg_latency_ms).' (available: requests)"
+        },
+        {
+          "id": "aggregate-024",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'total_bytes' (available: requests)"
+        },
+        {
+          "id": "aggregate-025",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].input: must not be empty"
+        },
+        {
+          "id": "aggregate-026",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'skus,units' (available: stock)"
+        },
+        {
+          "id": "aggregate-027",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'avg_cost' (available: stock)"
+        },
+        {
+          "id": "aggregate-028",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'plan, seats.' (available: subscriptions)"
+        },
+        {
+          "id": "aggregate-029",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[2]: unknown field 'columns' (available: op, input, as, group_by, metrics)"
+        },
+        {
+          "id": "aggregate-030",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'Total spent' (available: expenses)"
+        },
+        {
+          "id": "aggregate-031",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].input: must not be empty"
+        },
+        {
+          "id": "aggregate-032",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'output' (available: op, input, as, group_by, metrics)"
+        },
+        {
+          "id": "aggregate-033",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'columns' (available: op, input, as, where)"
+        },
+        {
+          "id": "aggregate-034",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'Median_duration' (available: trips)"
+        },
+        {
+          "id": "aggregate-035",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].input: must not be empty"
+        },
+        {
+          "id": "multi-001",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'expressions' (available: op, input, as, group_by, metrics)"
+        },
+        {
+          "id": "multi-002",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'group_by' (available: op, input, as, where)"
+        },
+        {
+          "id": "multi-003",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'month' (available: orders)"
+        },
+        {
+          "id": "multi-004",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].metrics[1].fn: must be one of 'count', 'count_distinct', 'sum', 'mean', 'median', 'min', 'max', got 'round'"
+        },
+        {
+          "id": "multi-005",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[1].metrics[0]: missing required field `as`"
+        },
+        {
+          "id": "multi-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-007",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'key_columns' (available: op, input, as, group_by, metrics)"
+        },
+        {
+          "id": "multi-008",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `manager_id is not null`: unsupported comparison IsNot"
+        },
+        {
+          "id": "multi-009",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'start_year' (available: employees)"
+        },
+        {
+          "id": "multi-010",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'keys' (available: op, input, as, by)"
+        },
+        {
+          "id": "multi-011",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[2].metrics[0]: missing required field `as`"
+        },
+        {
+          "id": "multi-012",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'avg_total' (available: students)"
+        },
+        {
+          "id": "multi-013",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'name, section, attendance_pct' (available: students)"
+        },
+        {
+          "id": "multi-014",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'columns' (available: op, input, as, where)"
+        },
+        {
+          "id": "multi-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].keys: expected array, got str"
+        },
+        {
+          "id": "multi-016",
+          "outcome": "plan_error",
+          "detail": "unknown_column: unknown column 'min_battery', did you mean 'battery_mv'? (available: reading_id, device, taken_at, temp_c, humidity_pct, battery_mv, uptime_s)"
+        },
+        {
+          "id": "multi-017",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'columns' (available: op, input, as, where)"
+        },
+        {
+          "id": "multi-018",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[1].metrics[0]: missing required field `as`"
+        },
+        {
+          "id": "multi-019",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].input: must not be empty"
+        },
+        {
+          "id": "multi-020",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'missing' (available: op, input, as, by)"
+        },
+        {
+          "id": "multi-021",
+          "outcome": "plan_error",
+          "detail": "unknown_column: unknown column 'error_rate' (available: ts, host, endpoint, method, status, latency_ms, bytes)"
+        },
+        {
+          "id": "multi-022",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'endpoint' (available: requests)"
+        },
+        {
+          "id": "multi-023",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'endpoint, method, hits.' (available: requests)"
+        },
+        {
+          "id": "multi-024",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'value' (available: stock)"
+        },
+        {
+          "id": "multi-025",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `by`"
+        },
+        {
+          "id": "multi-026",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[2].by[0]: expected object, got str"
+        },
+        {
+          "id": "multi-027",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'mrr, plan' (available: subscriptions)"
+        },
+        {
+          "id": "multi-028",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'columns' (available: op, input, as, where)"
+        },
+        {
+          "id": "multi-029",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'days_active' (available: subscriptions)"
+        },
+        {
+          "id": "multi-030",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'missing' (available: op, input, as, by)"
+        },
+        {
+          "id": "multi-031",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'group_by' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "multi-032",
+          "outcome": "plan_error",
+          "detail": "unknown_column: unknown column 'upi_total' (available: date, category, amount_inr, paid_by, mode, note)"
+        },
+        {
+          "id": "multi-033",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[1].metrics[0]: missing required field `as`"
+        },
+        {
+          "id": "multi-034",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].metrics[0].fn: must be one of 'count', 'count_distinct', 'sum', 'mean', 'median', 'min', 'max', got 'div'"
+        },
+        {
+          "id": "multi-035",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].metrics[0]: unknown field 'expr' (available: as, fn, column)"
+        },
+        {
+          "id": "multi-036",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[2]: unknown field 'columns' (available: op, input, as, where)"
+        },
+        {
+          "id": "multi-037",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'total' (available: expenses)"
+        },
+        {
+          "id": "multi-038",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[2]: unknown field 'columns' (available: op, input, as, group_by, metrics)"
+        },
+        {
+          "id": "multi-039",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'driver, (total distance_km * 1.0) / (duration_min * 1.0) as speed_kmh, max(distance_km) as sabse_dheema_driver_sabse_upar' (available: trips)"
+        },
+        {
+          "id": "multi-040",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'trip_id,fare,tip' (available: trips)"
+        },
+        {
+          "id": "multi-041",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'channel, orders.*' (available: orders)"
+        },
+        {
+          "id": "multi-042",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'total' (available: students)"
+        },
+        {
+          "id": "multi-043",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'missing' (available: op, input, as, group_by, metrics)"
+        },
+        {
+          "id": "join-001",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $: unknown field 'expressions' (available: status, steps)"
+        },
+        {
+          "id": "join-002",
+          "outcome": "plan_error",
+          "detail": "invalid_plan: give either `on` or `left_on` with `right_on`, not both"
+        },
+        {
+          "id": "join-003",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'revenue by city' (available: orders, customers)"
+        },
+        {
+          "id": "join-004",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `customer_id NOT IN (SELECT customer_id FROM customers)`: syntax error: invalid syntax"
+        },
+        {
+          "id": "join-005",
+          "outcome": "plan_error",
+          "detail": "invalid_plan: give either `on` or `left_on` with `right_on`, not both"
+        },
+        {
+          "id": "join-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[2]: unknown field 'columns' (available: op, input, as, group_by, metrics)"
+        },
+        {
+          "id": "join-007",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].by[0].order: must be one of 'asc', 'desc', got 'fewest'"
+        },
+        {
+          "id": "join-008",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[2].metrics[0].fn: must be one of 'count', 'count_distinct', 'sum', 'mean', 'median', 'min', 'max', got 'days_between'"
+        },
+        {
+          "id": "join-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].right_suffix: expected string, got null"
+        },
+        {
+          "id": "join-010",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'budget, payroll, dept' (available: employees, departments)"
+        },
+        {
+          "id": "join-011",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'departments.dept_name, (employees.salary - employees.bonus_pct * employees.salary) > departments.budget as overspend' (available: employees, departments)"
+        },
+        {
+          "id": "join-012",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `manager_id is not null`: unsupported comparison IsNot"
+        },
+        {
+          "id": "join-013",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'columns' (available: op, input, as, where)"
+        },
+        {
+          "id": "join-014",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `result.dept == \"NULL\"`: unsupported syntax (Attribute)"
+        },
+        {
+          "id": "join-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "join-016",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'avg_rating' (available: shipments, carriers)"
+        },
+        {
+          "id": "join-017",
+          "outcome": "plan_error",
+          "detail": "unknown_column: unknown column 'total_cost' (available: shipment_id, origin, destination, weight_lb, distance_mi, cost_usd, carrier, shipped_on, delivered_on)"
+        },
+        {
+          "id": "join-018",
+          "outcome": "plan_error",
+          "detail": "unknown_column: unknown column 'seat_limit' (available: sub_id, email, plan, monthly_fee, seats, started_on, cancelled_on, country)"
+        },
+        {
+          "id": "join-019",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'utilisation' (available: subscriptions, plans)"
+        },
+        {
+          "id": "join-020",
+          "outcome": "plan_error",
+          "detail": "unknown_column: unknown column 'support' (available: sub_id, email, plan, monthly_fee, seats, started_on, cancelled_on, country)"
+        },
+        {
+          "id": "units-001",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-002",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected plan"
+        },
+        {
+          "id": "units-003",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-004",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'humidity_pct' (available: readings)"
+        },
+        {
+          "id": "units-005",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'temp_c' (available: readings)"
+        },
+        {
+          "id": "units-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-007",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'distance_mi' (available: shipments)"
+        },
+        {
+          "id": "units-008",
+          "outcome": "plan_error",
+          "detail": "unknown_column: unknown column 'total_kg' (available: shipment_id, origin, destination, weight_lb, distance_mi, cost_usd, carrier, shipped_on, delivered_on)"
+        },
+        {
+          "id": "units-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'columns' (available: op, input, as, where)"
+        },
+        {
+          "id": "units-010",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-011",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'right_suffix' (available: op, input, as, column, to)"
+        },
+        {
+          "id": "units-012",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'ts, endpoint, method, status, latency_ms, bytes' (available: requests)"
+        },
+        {
+          "id": "units-013",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'distance_km' (available: trips)"
+        },
+        {
+          "id": "units-014",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "units-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1]: unknown field 'columns' (available: op, input, as, where)"
+        },
+        {
+          "id": "units-016",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'attendance_pct' (available: students)"
+        },
+        {
+          "id": "units-017",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].input: must not be empty"
+        },
+        {
+          "id": "text_date-001",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'name' (available: customers)"
+        },
+        {
+          "id": "text_date-002",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'Customers who joined during 2025' (available: customers)"
+        },
+        {
+          "id": "text_date-003",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "text_date-004",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'People whose role includes the word Engineer: name and role.' (available: employees)"
+        },
+        {
+          "id": "text_date-005",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "text_date-006",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'start_date' (available: employees)"
+        },
+        {
+          "id": "text_date-007",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "text_date-008",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `product LIKE '%kg'`: syntax error: invalid syntax"
+        },
+        {
+          "id": "text_date-009",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].to: must be one of 'int', 'float', 'str', 'bool', got 'date'"
+        },
+        {
+          "id": "text_date-010",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'subscriptions'"
+        },
+        {
+          "id": "text_date-011",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'started_on' (available: subscriptions)"
+        },
+        {
+          "id": "text_date-012",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `note contains 'BigBasket'`: syntax error: invalid syntax"
+        },
+        {
+          "id": "text_date-013",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-001",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'total_qty' (available: stock_raw)"
+        },
+        {
+          "id": "tricky-002",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'columns', did you mean 'column'? (available: op, input, as, column, expr)"
+        },
+        {
+          "id": "tricky-003",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'quantity' (available: stock_raw)"
+        },
+        {
+          "id": "tricky-004",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'stock_raw.active', did you mean 'stock_raw'? (available: stock_raw)"
+        },
+        {
+          "id": "tricky-005",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-006",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `(device, taken_at) IN (SELECT device, taken_at FROM readings GROUP BY device, taken_at HAVING COUNT(reading_id) = 1) AND humidity_pct IS NOT NULL`: syntax error: invalid syntax"
+        },
+        {
+          "id": "tricky-007",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'avg_discount' (available: orders)"
+        },
+        {
+          "id": "tricky-008",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-009",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'priority' (available: tickets)"
+        },
+        {
+          "id": "tricky-010",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `priority is None`: unsupported comparison Is"
+        },
+        {
+          "id": "tricky-011",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: each step must be an object with an `op`"
+        },
+        {
+          "id": "tricky-012",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-013",
+          "outcome": "plan_error",
+          "detail": "unknown_table: unknown table 'avg_math' (available: students)"
+        },
+        {
+          "id": "tricky-014",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].input: must not be empty"
+        },
+        {
+          "id": "tricky-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-001",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-002",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected needs_clarification or unsupported"
+        },
+        {
+          "id": "clarify-003",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected needs_clarification"
+        },
+        {
+          "id": "clarify-004",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected needs_clarification"
+        },
+        {
+          "id": "clarify-006",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected needs_clarification"
+        },
+        {
+          "id": "clarify-007",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected needs_clarification"
+        },
+        {
+          "id": "clarify-008",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-010",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].by[0]: expected object, got str"
+        },
+        {
+          "id": "clarify-011",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-015",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "clarify-017",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].right_suffix: must not be empty"
+        },
+        {
+          "id": "clarify-018",
+          "outcome": "invalid_response",
+          "detail": "unknown_op: unknown op 'bucket' (available: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, convert_unit, limit)"
+        },
+        {
+          "id": "clarify-019",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected needs_clarification"
+        },
+        {
+          "id": "unsupported-001",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        },
+        {
+          "id": "unsupported-002",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        },
+        {
+          "id": "unsupported-003",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        },
+        {
+          "id": "unsupported-004",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "unsupported-005",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[2].metrics[0].fn: must be one of 'count', 'count_distinct', 'sum', 'mean', 'median', 'min', 'max', got 'percentile'"
+        },
+        {
+          "id": "unsupported-006",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        },
+        {
+          "id": "unsupported-007",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "unsupported-008",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        },
+        {
+          "id": "unsupported-009",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        },
+        {
+          "id": "unsupported-010",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `metrics`"
+        },
+        {
+          "id": "unsupported-011",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[1].metrics[0].fn: must be one of 'count', 'count_distinct', 'sum', 'mean', 'median', 'min', 'max', got 'std'"
+        },
+        {
+          "id": "unsupported-012",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0].metrics[0].fn: must be one of 'count', 'count_distinct', 'sum', 'mean', 'median', 'min', 'max', got 'coalesce'"
+        },
+        {
+          "id": "unsupported-013",
+          "outcome": "invalid_response",
+          "detail": "missing_field: $.steps[0]: missing required field `columns`"
+        },
+        {
+          "id": "unsupported-014",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        }
+      ]
+    },
+    {
+      "file": "plan__-cf-openai-gpt-oss-120b.jsonl",
+      "arm": "plan",
+      "provider": "cloudflare",
+      "model": "@cf/openai/gpt-oss-120b",
+      "effort": "medium",
+      "system_tokens": null,
+      "answered": 250,
+      "errors_awaiting_retry": 0,
+      "tasks": 250,
+      "correct": 223,
+      "accuracy": 0.892,
+      "accuracy_ignoring_column_names": 0.892,
+      "outcomes": {
+        "correct": 223,
+        "wrong_result": 6,
+        "plan_error": 10,
+        "invalid_response": 1,
+        "wrong_status": 10
+      },
+      "by_category": {
+        "basic": {
+          "tasks": 46,
+          "correct": 45,
+          "accuracy": 0.9783
+        },
+        "derive": {
+          "tasks": 27,
+          "correct": 24,
+          "accuracy": 0.8889
+        },
+        "aggregate": {
+          "tasks": 35,
+          "correct": 33,
+          "accuracy": 0.9429
+        },
+        "multi": {
+          "tasks": 43,
+          "correct": 36,
+          "accuracy": 0.8372
+        },
+        "join": {
+          "tasks": 20,
+          "correct": 18,
+          "accuracy": 0.9
+        },
+        "units": {
+          "tasks": 17,
+          "correct": 17,
+          "accuracy": 1.0
+        },
+        "text_date": {
+          "tasks": 13,
+          "correct": 12,
+          "accuracy": 0.9231
+        },
+        "tricky": {
+          "tasks": 16,
+          "correct": 15,
+          "accuracy": 0.9375
+        },
+        "clarify": {
+          "tasks": 19,
+          "correct": 16,
+          "accuracy": 0.8421
+        },
+        "unsupported": {
+          "tasks": 14,
+          "correct": 7,
+          "accuracy": 0.5
+        }
+      },
+      "by_tag": {
+        "hinglish": {
+          "tasks": 14,
+          "correct": 10,
+          "accuracy": 0.7143
+        },
+        "steps:1": {
+          "tasks": 110,
+          "correct": 104,
+          "accuracy": 0.9455
+        },
+        "steps:2-3": {
+          "tasks": 71,
+          "correct": 65,
+          "accuracy": 0.9155
+        },
+        "steps:4+": {
+          "tasks": 36,
+          "correct": 31,
+          "accuracy": 0.8611
+        }
+      },
+      "tokens_per_task": {
+        "input_including_system_prompt": 2710.0,
+        "output": 317.9
+      },
+      "seconds_per_task": 5.9,
+      "billed_usd_total": 0.2967,
+      "failures": [
+        {
+          "id": "basic-009",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "derive-016",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `round(cost_usd / distance_mi, digits=3)`: round() takes positional arguments only"
+        },
+        {
+          "id": "derive-022",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `round(distance_km * 60 / duration_min, digits=1)`: round() takes positional arguments only"
+        },
+        {
+          "id": "derive-025",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `round(monthly_fee / seats, digits=2)`: round() takes positional arguments only"
+        },
+        {
+          "id": "aggregate-009",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "aggregate-012",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "multi-004",
+          "outcome": "plan_error",
+          "detail": "unknown_column: unknown column 'key' (available: channel, orders)"
+        },
+        {
+          "id": "multi-027",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "multi-028",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "multi-031",
+          "outcome": "plan_error",
+          "detail": "unknown_column: unknown column 'key' (available: paid_by, person_sum)"
+        },
+        {
+          "id": "multi-037",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `round(avg, digits=2)`: round() takes positional arguments only"
+        },
+        {
+          "id": "multi-038",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[0]: unknown field 'where' (available: op, input, as, group_by, metrics)"
+        },
+        {
+          "id": "multi-039",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `round(total_distance * 60 / total_duration, digits=1)`: round() takes positional arguments only"
+        },
+        {
+          "id": "join-001",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "join-005",
+          "outcome": "plan_error",
+          "detail": "unknown_column: unknown column 'customer_id_right', did you mean 'customer_id'? (available: order_id, customer_id, placed_on, status, items, unit_price, discount_pct, channel, name, city, tier, joined_on)"
+        },
+        {
+          "id": "text_date-009",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `restocked_on.startswith('2026-07')`: only plain function calls are allowed"
+        },
+        {
+          "id": "tricky-015",
+          "outcome": "plan_error",
+          "detail": "type_error: cannot take the sum of column 'is_success': found bool True"
+        },
+        {
+          "id": "clarify-003",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected needs_clarification"
+        },
+        {
+          "id": "clarify-009",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected needs_clarification"
+        },
+        {
+          "id": "clarify-014",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected needs_clarification or unsupported"
+        },
+        {
+          "id": "unsupported-002",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        },
+        {
+          "id": "unsupported-006",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        },
+        {
+          "id": "unsupported-007",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        },
+        {
+          "id": "unsupported-009",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        },
+        {
+          "id": "unsupported-010",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        },
+        {
+          "id": "unsupported-013",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        },
+        {
+          "id": "unsupported-014",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        }
+      ]
+    },
+    {
+      "file": "plan__-cf-qwen-qwen3.8-27b.jsonl",
+      "arm": "plan",
+      "provider": "cloudflare",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "effort": "medium",
+      "system_tokens": null,
+      "answered": 250,
+      "errors_awaiting_retry": 0,
+      "tasks": 250,
+      "correct": 227,
+      "accuracy": 0.908,
+      "accuracy_ignoring_column_names": 0.908,
+      "outcomes": {
+        "correct": 227,
+        "plan_error": 16,
+        "invalid_response": 4,
+        "wrong_status": 3
+      },
+      "by_category": {
+        "basic": {
+          "tasks": 46,
+          "correct": 43,
+          "accuracy": 0.9348
+        },
+        "derive": {
+          "tasks": 27,
+          "correct": 22,
+          "accuracy": 0.8148
+        },
+        "aggregate": {
+          "tasks": 35,
+          "correct": 35,
+          "accuracy": 1.0
+        },
+        "multi": {
+          "tasks": 43,
+          "correct": 39,
+          "accuracy": 0.907
+        },
+        "join": {
+          "tasks": 20,
+          "correct": 17,
+          "accuracy": 0.85
+        },
+        "units": {
+          "tasks": 17,
+          "correct": 15,
+          "accuracy": 0.8824
+        },
+        "text_date": {
+          "tasks": 13,
+          "correct": 11,
+          "accuracy": 0.8462
+        },
+        "tricky": {
+          "tasks": 16,
+          "correct": 15,
+          "accuracy": 0.9375
+        },
+        "clarify": {
+          "tasks": 19,
+          "correct": 18,
+          "accuracy": 0.9474
+        },
+        "unsupported": {
+          "tasks": 14,
+          "correct": 12,
+          "accuracy": 0.8571
+        }
+      },
+      "by_tag": {
+        "hinglish": {
+          "tasks": 14,
+          "correct": 13,
+          "accuracy": 0.9286
+        },
+        "steps:1": {
+          "tasks": 110,
+          "correct": 99,
+          "accuracy": 0.9
+        },
+        "steps:2-3": {
+          "tasks": 71,
+          "correct": 65,
+          "accuracy": 0.9155
+        },
+        "steps:4+": {
+          "tasks": 36,
+          "correct": 33,
+          "accuracy": 0.9167
+        }
+      },
+      "tokens_per_task": {
+        "input_including_system_prompt": 2687.5,
+        "output": 642.7
+      },
+      "seconds_per_task": 27.1,
+      "billed_usd_total": 0.8165,
+      "failures": [
+        {
+          "id": "basic-006",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'orders'"
+        },
+        {
+          "id": "basic-007",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'orders'"
+        },
+        {
+          "id": "basic-030",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'students'"
+        },
+        {
+          "id": "derive-002",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'orders'"
+        },
+        {
+          "id": "derive-003",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'orders'"
+        },
+        {
+          "id": "derive-005",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'orders'"
+        },
+        {
+          "id": "derive-010",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'employees'"
+        },
+        {
+          "id": "derive-023",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'trips'"
+        },
+        {
+          "id": "multi-011",
+          "outcome": "plan_error",
+          "detail": "unknown_column: unknown column 'max_salary' (available: dept, gap)"
+        },
+        {
+          "id": "multi-014",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "multi-016",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.steps[3]: each step must be an object with an `op`"
+        },
+        {
+          "id": "multi-039",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `not is_null(total_duration_min) and total_duration_min > 0 and not is_null(total_distance_km) ? round(total_distance_km / (total_duration_min / 60), 1) : null`: syntax error: invalid syntax"
+        },
+        {
+          "id": "join-001",
+          "outcome": "plan_error",
+          "detail": "unknown_column: unknown column 'customer_id_right', did you mean 'customer_id'? (available: order_id, customer_id, placed_on, status, items, unit_price, discount_pct, channel, name, city, tier, joined_on)"
+        },
+        {
+          "id": "join-005",
+          "outcome": "plan_error",
+          "detail": "unknown_column: unknown column 'customer_id_right', did you mean 'customer_id'? (available: order_id, customer_id, placed_on, status, items, unit_price, discount_pct, channel, name, city, tier, joined_on)"
+        },
+        {
+          "id": "join-015",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'result'"
+        },
+        {
+          "id": "units-005",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'readings'"
+        },
+        {
+          "id": "units-017",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'employees'"
+        },
+        {
+          "id": "text_date-002",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "text_date-006",
+          "outcome": "invalid_response",
+          "detail": "invalid_plan: $.status: must be one of plan, needs_clarification, unsupported"
+        },
+        {
+          "id": "tricky-002",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `round(float(qty) * float(unit_cost), digits=2)`: round() takes positional arguments only"
+        },
+        {
+          "id": "clarify-014",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected needs_clarification or unsupported"
+        },
+        {
+          "id": "unsupported-010",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        },
+        {
+          "id": "unsupported-013",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        }
+      ]
+    },
+    {
+      "file": "plan__-cf-zai-org-glm-5.3.jsonl",
+      "arm": "plan",
+      "provider": "cloudflare",
+      "model": "@cf/zai-org/glm-5.3",
+      "effort": "medium",
+      "system_tokens": null,
+      "answered": 250,
+      "errors_awaiting_retry": 0,
+      "tasks": 250,
+      "correct": 236,
+      "accuracy": 0.944,
+      "accuracy_ignoring_column_names": 0.944,
+      "outcomes": {
+        "correct": 236,
+        "wrong_result": 3,
+        "plan_error": 3,
+        "invalid_response": 3,
+        "wrong_status": 5
+      },
+      "by_category": {
+        "basic": {
+          "tasks": 46,
+          "correct": 46,
+          "accuracy": 1.0
+        },
+        "derive": {
+          "tasks": 27,
+          "correct": 27,
+          "accuracy": 1.0
+        },
+        "aggregate": {
+          "tasks": 35,
+          "correct": 32,
+          "accuracy": 0.9143
+        },
+        "multi": {
+          "tasks": 43,
+          "correct": 42,
+          "accuracy": 0.9767
+        },
+        "join": {
+          "tasks": 20,
+          "correct": 19,
+          "accuracy": 0.95
+        },
+        "units": {
+          "tasks": 17,
+          "correct": 16,
+          "accuracy": 0.9412
+        },
+        "text_date": {
+          "tasks": 13,
+          "correct": 13,
+          "accuracy": 1.0
+        },
+        "tricky": {
+          "tasks": 16,
+          "correct": 15,
+          "accuracy": 0.9375
+        },
+        "clarify": {
+          "tasks": 19,
+          "correct": 18,
+          "accuracy": 0.9474
+        },
+        "unsupported": {
+          "tasks": 14,
+          "correct": 8,
+          "accuracy": 0.5714
+        }
+      },
+      "by_tag": {
+        "hinglish": {
+          "tasks": 14,
+          "correct": 13,
+          "accuracy": 0.9286
+        },
+        "steps:1": {
+          "tasks": 110,
+          "correct": 107,
+          "accuracy": 0.9727
+        },
+        "steps:2-3": {
+          "tasks": 71,
+          "correct": 68,
+          "accuracy": 0.9577
+        },
+        "steps:4+": {
+          "tasks": 36,
+          "correct": 35,
+          "accuracy": 0.9722
+        }
+      },
+      "tokens_per_task": {
+        "input_including_system_prompt": 2598.4,
+        "output": 642.5
+      },
+      "seconds_per_task": 19.5,
+      "billed_usd_total": 1.085,
+      "abnormal_stops": {
+        "length": 3
+      },
+      "failures": [
+        {
+          "id": "aggregate-009",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "aggregate-012",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "aggregate-027",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "multi-012",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'section_avg'"
+        },
+        {
+          "id": "join-001",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "units-013",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'trips'"
+        },
+        {
+          "id": "tricky-014",
+          "outcome": "plan_error",
+          "detail": "duplicate_table: `as` reuses the table name 'orders_with_tier'"
+        },
+        {
+          "id": "clarify-003",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected needs_clarification"
+        },
+        {
+          "id": "unsupported-001",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "unsupported-002",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        },
+        {
+          "id": "unsupported-003",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        },
+        {
+          "id": "unsupported-012",
+          "outcome": "invalid_response",
+          "detail": "response is not JSON"
+        },
+        {
+          "id": "unsupported-013",
+          "outcome": "wrong_status",
+          "detail": "got 'needs_clarification', expected unsupported"
+        },
+        {
+          "id": "unsupported-014",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        }
+      ]
+    }
+  ]
+}

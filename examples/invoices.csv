@@ -1,0 +1,7 @@
+vendor,invoice_number,amount,gst_rate
+Acme,A-1,1000,0.18
+Acme,A-1,1000,0.18
+Acme,A-2,500,0.18
+Bolt,B-7,200,0.05
+Bolt,B-8,300.50,0.05
+Cora,C-3,,0.12

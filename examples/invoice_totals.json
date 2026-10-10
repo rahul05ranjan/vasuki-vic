@@ -1,0 +1,17 @@
+{
+  "status": "plan",
+  "steps": [
+    {"op": "deduplicate", "keys": ["vendor", "invoice_number"]},
+    {"op": "derive", "column": "gst", "expr": "round(amount * gst_rate, 2)"},
+    {
+      "op": "aggregate",
+      "group_by": ["vendor"],
+      "metrics": [
+        {"as": "invoices", "fn": "count"},
+        {"as": "amount", "fn": "sum", "column": "amount"},
+        {"as": "gst", "fn": "sum", "column": "gst"}
+      ]
+    },
+    {"op": "sort", "by": [{"column": "amount", "order": "desc"}]}
+  ]
+}

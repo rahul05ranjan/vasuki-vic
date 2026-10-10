@@ -1,0 +1,28 @@
+vasuki and the VIC planner models
+Copyright 2026 rahul05ranjan
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Data in this repository that is not under the Apache License
+------------------------------------------------------------
+
+evals/real1 and evals/real_dev are derived from the Spider text-to-SQL dataset
+(Yu et al., 2018, https://yale-lily.github.io/spider). The questions and tables are
+Spider's; each expected result is what Spider's own SQL returns. Spider is licensed
+under CC BY-SA 4.0, and these two folders are distributed under the same licence.
+
+evals/real2 is derived from the dev split of the BIRD benchmark (Li et al., 2023,
+https://bird-bench.github.io). The questions, their evidence lines and the tables are
+BIRD's; each expected result is what BIRD's own SQL returns. BIRD is licensed under
+CC BY-SA 4.0, and this folder is distributed under the same licence.
+
+CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/
+
+What the VIC models were trained on
+-----------------------------------
+
+The base models are Qwen3-1.7B and Qwen3.5-2B (Alibaba Cloud, Apache License 2.0).
+The training data is machine-written and machine-verified requests with their plans,
+written through hosted models (gpt-oss-120b, GLM-5.3, Qwen3.8-27B). From run k5
+onward it also includes questions from Spider's train split, each paired with a plan
+that was kept only when its result equals the result of Spider's SQL.

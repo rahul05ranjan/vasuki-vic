@@ -1,0 +1,385 @@
+{
+  "runs": [
+    {
+      "file": "code__-cf-openai-gpt-oss-120b.jsonl",
+      "arm": "code",
+      "provider": "cloudflare",
+      "model": "@cf/openai/gpt-oss-120b",
+      "effort": "medium",
+      "system_tokens": null,
+      "answered": 235,
+      "errors_awaiting_retry": 0,
+      "tasks": 235,
+      "correct": 229,
+      "accuracy": 0.9745,
+      "accuracy_ignoring_column_names": 0.9745,
+      "outcomes": {
+        "correct": 229,
+        "wrong_result": 5,
+        "wrong_status": 1
+      },
+      "by_category": {
+        "basic": {
+          "tasks": 46,
+          "correct": 45,
+          "accuracy": 0.9783
+        },
+        "derive": {
+          "tasks": 27,
+          "correct": 26,
+          "accuracy": 0.963
+        },
+        "aggregate": {
+          "tasks": 35,
+          "correct": 34,
+          "accuracy": 0.9714
+        },
+        "multi": {
+          "tasks": 43,
+          "correct": 43,
+          "accuracy": 1.0
+        },
+        "join": {
+          "tasks": 22,
+          "correct": 22,
+          "accuracy": 1.0
+        },
+        "units": {
+          "tasks": 17,
+          "correct": 17,
+          "accuracy": 1.0
+        },
+        "text_date": {
+          "tasks": 15,
+          "correct": 14,
+          "accuracy": 0.9333
+        },
+        "tricky": {
+          "tasks": 16,
+          "correct": 15,
+          "accuracy": 0.9375
+        },
+        "clarify": {
+          "tasks": 14,
+          "correct": 13,
+          "accuracy": 0.9286
+        }
+      },
+      "by_tag": {
+        "hinglish": {
+          "tasks": 13,
+          "correct": 13,
+          "accuracy": 1.0
+        },
+        "steps:1": {
+          "tasks": 110,
+          "correct": 106,
+          "accuracy": 0.9636
+        },
+        "steps:2-3": {
+          "tasks": 73,
+          "correct": 72,
+          "accuracy": 0.9863
+        },
+        "steps:4+": {
+          "tasks": 38,
+          "correct": 38,
+          "accuracy": 1.0
+        }
+      },
+      "tokens_per_task": {
+        "input_including_system_prompt": 637.3,
+        "output": 241.6
+      },
+      "seconds_per_task": 4.2,
+      "billed_usd_total": 0.095,
+      "versus_delegating": {
+        "tasks_compared": 235,
+        "token_counts_from": "estimate: characters / 3.5",
+        "system_prompt_excluded": false,
+        "unit": "usd_per_1000_tasks",
+        "caller_alone": 0.454,
+        "caller_delegating": 0.08,
+        "break_even_planner_accuracy": 0.176
+      },
+      "failures": [
+        {
+          "id": "basic-002",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "derive-002",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "aggregate-023",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "text_date-015",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "tricky-002",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "clarify-011",
+          "outcome": "wrong_status",
+          "detail": "wrote code, expected needs_clarification or unsupported"
+        }
+      ]
+    },
+    {
+      "file": "plan__-cf-openai-gpt-oss-120b.jsonl",
+      "arm": "plan",
+      "provider": "cloudflare",
+      "model": "@cf/openai/gpt-oss-120b",
+      "effort": "medium",
+      "system_tokens": null,
+      "answered": 245,
+      "errors_awaiting_retry": 0,
+      "tasks": 245,
+      "correct": 238,
+      "accuracy": 0.9714,
+      "accuracy_ignoring_column_names": 0.9714,
+      "outcomes": {
+        "correct": 238,
+        "wrong_result": 1,
+        "plan_error": 1,
+        "wrong_status": 5
+      },
+      "by_category": {
+        "basic": {
+          "tasks": 46,
+          "correct": 45,
+          "accuracy": 0.9783
+        },
+        "derive": {
+          "tasks": 27,
+          "correct": 27,
+          "accuracy": 1.0
+        },
+        "aggregate": {
+          "tasks": 35,
+          "correct": 35,
+          "accuracy": 1.0
+        },
+        "multi": {
+          "tasks": 43,
+          "correct": 42,
+          "accuracy": 0.9767
+        },
+        "join": {
+          "tasks": 22,
+          "correct": 20,
+          "accuracy": 0.9091
+        },
+        "units": {
+          "tasks": 17,
+          "correct": 17,
+          "accuracy": 1.0
+        },
+        "text_date": {
+          "tasks": 15,
+          "correct": 15,
+          "accuracy": 1.0
+        },
+        "tricky": {
+          "tasks": 16,
+          "correct": 16,
+          "accuracy": 1.0
+        },
+        "clarify": {
+          "tasks": 14,
+          "correct": 14,
+          "accuracy": 1.0
+        },
+        "unsupported": {
+          "tasks": 10,
+          "correct": 7,
+          "accuracy": 0.7
+        }
+      },
+      "by_tag": {
+        "hinglish": {
+          "tasks": 14,
+          "correct": 13,
+          "accuracy": 0.9286
+        },
+        "steps:1": {
+          "tasks": 110,
+          "correct": 109,
+          "accuracy": 0.9909
+        },
+        "steps:2-3": {
+          "tasks": 73,
+          "correct": 73,
+          "accuracy": 1.0
+        },
+        "steps:4+": {
+          "tasks": 38,
+          "correct": 35,
+          "accuracy": 0.9211
+        }
+      },
+      "tokens_per_task": {
+        "input_including_system_prompt": 2841.9,
+        "output": 310.0
+      },
+      "seconds_per_task": 5.4,
+      "billed_usd_total": 0.3007,
+      "failures": [
+        {
+          "id": "basic-002",
+          "outcome": "wrong_result"
+        },
+        {
+          "id": "multi-014",
+          "outcome": "plan_error",
+          "detail": "bad_expression: in `round(pass / total, 2)`: syntax error: invalid syntax"
+        },
+        {
+          "id": "join-021",
+          "outcome": "wrong_status",
+          "detail": "got 'unsupported', expected plan"
+        },
+        {
+          "id": "join-022",
+          "outcome": "wrong_status",
+          "detail": "got 'unsupported', expected plan"
+        },
+        {
+          "id": "unsupported-002",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported or needs_clarification"
+        },
+        {
+          "id": "unsupported-005",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        },
+        {
+          "id": "unsupported-010",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        }
+      ]
+    },
+    {
+      "file": "plan__-cf-zai-org-glm-5.3.jsonl",
+      "arm": "plan",
+      "provider": "cloudflare",
+      "model": "@cf/zai-org/glm-5.3",
+      "effort": "medium",
+      "system_tokens": null,
+      "answered": 245,
+      "errors_awaiting_retry": 0,
+      "tasks": 245,
+      "correct": 242,
+      "accuracy": 0.9878,
+      "accuracy_ignoring_column_names": 0.9878,
+      "outcomes": {
+        "correct": 242,
+        "wrong_status": 3
+      },
+      "by_category": {
+        "basic": {
+          "tasks": 46,
+          "correct": 46,
+          "accuracy": 1.0
+        },
+        "derive": {
+          "tasks": 27,
+          "correct": 27,
+          "accuracy": 1.0
+        },
+        "aggregate": {
+          "tasks": 35,
+          "correct": 35,
+          "accuracy": 1.0
+        },
+        "multi": {
+          "tasks": 43,
+          "correct": 43,
+          "accuracy": 1.0
+        },
+        "join": {
+          "tasks": 22,
+          "correct": 21,
+          "accuracy": 0.9545
+        },
+        "units": {
+          "tasks": 17,
+          "correct": 17,
+          "accuracy": 1.0
+        },
+        "text_date": {
+          "tasks": 15,
+          "correct": 15,
+          "accuracy": 1.0
+        },
+        "tricky": {
+          "tasks": 16,
+          "correct": 16,
+          "accuracy": 1.0
+        },
+        "clarify": {
+          "tasks": 14,
+          "correct": 14,
+          "accuracy": 1.0
+        },
+        "unsupported": {
+          "tasks": 10,
+          "correct": 8,
+          "accuracy": 0.8
+        }
+      },
+      "by_tag": {
+        "hinglish": {
+          "tasks": 14,
+          "correct": 13,
+          "accuracy": 0.9286
+        },
+        "steps:1": {
+          "tasks": 110,
+          "correct": 110,
+          "accuracy": 1.0
+        },
+        "steps:2-3": {
+          "tasks": 73,
+          "correct": 73,
+          "accuracy": 1.0
+        },
+        "steps:4+": {
+          "tasks": 38,
+          "correct": 37,
+          "accuracy": 0.9737
+        }
+      },
+      "tokens_per_task": {
+        "input_including_system_prompt": 2728.3,
+        "output": 515.9
+      },
+      "seconds_per_task": 22.3,
+      "billed_usd_total": 0.9336,
+      "failures": [
+        {
+          "id": "join-022",
+          "outcome": "wrong_status",
+          "detail": "got 'unsupported', expected plan"
+        },
+        {
+          "id": "unsupported-005",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        },
+        {
+          "id": "unsupported-010",
+          "outcome": "wrong_status",
+          "detail": "got 'plan', expected unsupported"
+        }
+      ]
+    }
+  ]
+}

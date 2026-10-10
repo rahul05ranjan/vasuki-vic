@@ -1,0 +1,985 @@
+{
+ "counter": "estimate: characters / 3.5",
+ "tasks": {
+  "basic-001": {
+   "call": 23,
+   "result": 140
+  },
+  "basic-002": {
+   "call": 34,
+   "result": 266
+  },
+  "basic-003": {
+   "call": 25,
+   "result": 265
+  },
+  "basic-004": {
+   "call": 27,
+   "result": 265
+  },
+  "basic-005": {
+   "call": 29,
+   "result": 117
+  },
+  "basic-006": {
+   "call": 21,
+   "result": 236
+  },
+  "basic-007": {
+   "call": 29,
+   "result": 273
+  },
+  "basic-008": {
+   "call": 26,
+   "result": 193
+  },
+  "basic-009": {
+   "call": 36,
+   "result": 184
+  },
+  "basic-010": {
+   "call": 23,
+   "result": 224
+  },
+  "basic-011": {
+   "call": 25,
+   "result": 153
+  },
+  "basic-012": {
+   "call": 28,
+   "result": 180
+  },
+  "basic-013": {
+   "call": 39,
+   "result": 62
+  },
+  "basic-014": {
+   "call": 24,
+   "result": 240
+  },
+  "basic-015": {
+   "call": 31,
+   "result": 297
+  },
+  "basic-016": {
+   "call": 26,
+   "result": 281
+  },
+  "basic-017": {
+   "call": 30,
+   "result": 66
+  },
+  "basic-018": {
+   "call": 35,
+   "result": 237
+  },
+  "basic-019": {
+   "call": 23,
+   "result": 171
+  },
+  "basic-020": {
+   "call": 44,
+   "result": 249
+  },
+  "basic-021": {
+   "call": 27,
+   "result": 91
+  },
+  "basic-022": {
+   "call": 24,
+   "result": 132
+  },
+  "basic-023": {
+   "call": 33,
+   "result": 258
+  },
+  "basic-024": {
+   "call": 28,
+   "result": 164
+  },
+  "basic-025": {
+   "call": 29,
+   "result": 225
+  },
+  "basic-026": {
+   "call": 31,
+   "result": 327
+  },
+  "basic-027": {
+   "call": 37,
+   "result": 142
+  },
+  "basic-028": {
+   "call": 21,
+   "result": 139
+  },
+  "basic-029": {
+   "call": 27,
+   "result": 140
+  },
+  "basic-030": {
+   "call": 30,
+   "result": 140
+  },
+  "basic-031": {
+   "call": 34,
+   "result": 78
+  },
+  "basic-032": {
+   "call": 28,
+   "result": 119
+  },
+  "basic-033": {
+   "call": 25,
+   "result": 227
+  },
+  "basic-034": {
+   "call": 23,
+   "result": 119
+  },
+  "basic-035": {
+   "call": 36,
+   "result": 142
+  },
+  "basic-036": {
+   "call": 24,
+   "result": 148
+  },
+  "basic-037": {
+   "call": 23,
+   "result": 145
+  },
+  "basic-038": {
+   "call": 28,
+   "result": 255
+  },
+  "basic-039": {
+   "call": 24,
+   "result": 291
+  },
+  "basic-040": {
+   "call": 35,
+   "result": 269
+  },
+  "basic-041": {
+   "call": 34,
+   "result": 184
+  },
+  "basic-042": {
+   "call": 21,
+   "result": 171
+  },
+  "basic-043": {
+   "call": 20,
+   "result": 218
+  },
+  "basic-044": {
+   "call": 21,
+   "result": 175
+  },
+  "basic-045": {
+   "call": 34,
+   "result": 74
+  },
+  "basic-046": {
+   "call": 44,
+   "result": 148
+  },
+  "derive-001": {
+   "call": 25,
+   "result": 289
+  },
+  "derive-002": {
+   "call": 50,
+   "result": 296
+  },
+  "derive-003": {
+   "call": 37,
+   "result": 290
+  },
+  "derive-004": {
+   "call": 34,
+   "result": 292
+  },
+  "derive-005": {
+   "call": 30,
+   "result": 266
+  },
+  "derive-006": {
+   "call": 40,
+   "result": 311
+  },
+  "derive-007": {
+   "call": 59,
+   "result": 112
+  },
+  "derive-008": {
+   "call": 36,
+   "result": 324
+  },
+  "derive-009": {
+   "call": 47,
+   "result": 310
+  },
+  "derive-010": {
+   "call": 40,
+   "result": 287
+  },
+  "derive-011": {
+   "call": 40,
+   "result": 219
+  },
+  "derive-012": {
+   "call": 34,
+   "result": 218
+  },
+  "derive-013": {
+   "call": 44,
+   "result": 222
+  },
+  "derive-014": {
+   "call": 43,
+   "result": 215
+  },
+  "derive-015": {
+   "call": 30,
+   "result": 279
+  },
+  "derive-016": {
+   "call": 34,
+   "result": 367
+  },
+  "derive-017": {
+   "call": 42,
+   "result": 360
+  },
+  "derive-018": {
+   "call": 39,
+   "result": 371
+  },
+  "derive-019": {
+   "call": 30,
+   "result": 253
+  },
+  "derive-020": {
+   "call": 24,
+   "result": 326
+  },
+  "derive-021": {
+   "call": 41,
+   "result": 317
+  },
+  "derive-022": {
+   "call": 35,
+   "result": 285
+  },
+  "derive-023": {
+   "call": 30,
+   "result": 288
+  },
+  "derive-024": {
+   "call": 28,
+   "result": 303
+  },
+  "derive-025": {
+   "call": 36,
+   "result": 304
+  },
+  "derive-026": {
+   "call": 35,
+   "result": 230
+  },
+  "derive-027": {
+   "call": 47,
+   "result": 96
+  },
+  "aggregate-001": {
+   "call": 32,
+   "result": 73
+  },
+  "aggregate-002": {
+   "call": 28,
+   "result": 67
+  },
+  "aggregate-003": {
+   "call": 27,
+   "result": 72
+  },
+  "aggregate-004": {
+   "call": 37,
+   "result": 38
+  },
+  "aggregate-005": {
+   "call": 46,
+   "result": 113
+  },
+  "aggregate-006": {
+   "call": 35,
+   "result": 53
+  },
+  "aggregate-007": {
+   "call": 35,
+   "result": 92
+  },
+  "aggregate-008": {
+   "call": 29,
+   "result": 80
+  },
+  "aggregate-009": {
+   "call": 69,
+   "result": 82
+  },
+  "aggregate-010": {
+   "call": 33,
+   "result": 72
+  },
+  "aggregate-011": {
+   "call": 39,
+   "result": 49
+  },
+  "aggregate-012": {
+   "call": 55,
+   "result": 71
+  },
+  "aggregate-013": {
+   "call": 34,
+   "result": 67
+  },
+  "aggregate-014": {
+   "call": 48,
+   "result": 79
+  },
+  "aggregate-015": {
+   "call": 30,
+   "result": 65
+  },
+  "aggregate-016": {
+   "call": 43,
+   "result": 58
+  },
+  "aggregate-017": {
+   "call": 37,
+   "result": 102
+  },
+  "aggregate-018": {
+   "call": 35,
+   "result": 106
+  },
+  "aggregate-019": {
+   "call": 26,
+   "result": 73
+  },
+  "aggregate-020": {
+   "call": 43,
+   "result": 101
+  },
+  "aggregate-021": {
+   "call": 29,
+   "result": 82
+  },
+  "aggregate-022": {
+   "call": 27,
+   "result": 75
+  },
+  "aggregate-023": {
+   "call": 35,
+   "result": 89
+  },
+  "aggregate-024": {
+   "call": 29,
+   "result": 69
+  },
+  "aggregate-025": {
+   "call": 34,
+   "result": 62
+  },
+  "aggregate-026": {
+   "call": 32,
+   "result": 76
+  },
+  "aggregate-027": {
+   "call": 47,
+   "result": 94
+  },
+  "aggregate-028": {
+   "call": 30,
+   "result": 59
+  },
+  "aggregate-029": {
+   "call": 33,
+   "result": 87
+  },
+  "aggregate-030": {
+   "call": 25,
+   "result": 86
+  },
+  "aggregate-031": {
+   "call": 37,
+   "result": 62
+  },
+  "aggregate-032": {
+   "call": 39,
+   "result": 115
+  },
+  "aggregate-033": {
+   "call": 34,
+   "result": 57
+  },
+  "aggregate-034": {
+   "call": 28,
+   "result": 59
+  },
+  "aggregate-035": {
+   "call": 38,
+   "result": 68
+  },
+  "multi-001": {
+   "call": 54,
+   "result": 101
+  },
+  "multi-002": {
+   "call": 78,
+   "result": 122
+  },
+  "multi-003": {
+   "call": 51,
+   "result": 78
+  },
+  "multi-004": {
+   "call": 63,
+   "result": 143
+  },
+  "multi-005": {
+   "call": 30,
+   "result": 58
+  },
+  "multi-006": {
+   "call": 60,
+   "result": 80
+  },
+  "multi-007": {
+   "call": 78,
+   "result": 92
+  },
+  "multi-008": {
+   "call": 48,
+   "result": 76
+  },
+  "multi-009": {
+   "call": 42,
+   "result": 109
+  },
+  "multi-010": {
+   "call": 40,
+   "result": 115
+  },
+  "multi-011": {
+   "call": 52,
+   "result": 92
+  },
+  "multi-012": {
+   "call": 68,
+   "result": 100
+  },
+  "multi-013": {
+   "call": 57,
+   "result": 119
+  },
+  "multi-014": {
+   "call": 57,
+   "result": 111
+  },
+  "multi-015": {
+   "call": 60,
+   "result": 112
+  },
+  "multi-016": {
+   "call": 44,
+   "result": 59
+  },
+  "multi-017": {
+   "call": 49,
+   "result": 72
+  },
+  "multi-018": {
+   "call": 61,
+   "result": 92
+  },
+  "multi-019": {
+   "call": 63,
+   "result": 127
+  },
+  "multi-020": {
+   "call": 65,
+   "result": 127
+  },
+  "multi-021": {
+   "call": 52,
+   "result": 101
+  },
+  "multi-022": {
+   "call": 48,
+   "result": 104
+  },
+  "multi-023": {
+   "call": 40,
+   "result": 121
+  },
+  "multi-024": {
+   "call": 46,
+   "result": 94
+  },
+  "multi-025": {
+   "call": 57,
+   "result": 156
+  },
+  "multi-026": {
+   "call": 60,
+   "result": 130
+  },
+  "multi-027": {
+   "call": 70,
+   "result": 82
+  },
+  "multi-028": {
+   "call": 75,
+   "result": 117
+  },
+  "multi-029": {
+   "call": 61,
+   "result": 116
+  },
+  "multi-030": {
+   "call": 40,
+   "result": 91
+  },
+  "multi-031": {
+   "call": 45,
+   "result": 128
+  },
+  "multi-032": {
+   "call": 33,
+   "result": 69
+  },
+  "multi-033": {
+   "call": 49,
+   "result": 100
+  },
+  "multi-034": {
+   "call": 50,
+   "result": 78
+  },
+  "multi-035": {
+   "call": 52,
+   "result": 114
+  },
+  "multi-036": {
+   "call": 38,
+   "result": 70
+  },
+  "multi-037": {
+   "call": 51,
+   "result": 87
+  },
+  "multi-038": {
+   "call": 38,
+   "result": 48
+  },
+  "multi-039": {
+   "call": 56,
+   "result": 111
+  },
+  "multi-040": {
+   "call": 34,
+   "result": 80
+  },
+  "multi-041": {
+   "call": 40,
+   "result": 73
+  },
+  "multi-042": {
+   "call": 50,
+   "result": 109
+  },
+  "multi-043": {
+   "call": 41,
+   "result": 75
+  },
+  "join-001": {
+   "call": 72,
+   "result": 123
+  },
+  "join-002": {
+   "call": 39,
+   "result": 129
+  },
+  "join-003": {
+   "call": 62,
+   "result": 108
+  },
+  "join-004": {
+   "call": 40,
+   "result": 83
+  },
+  "join-005": {
+   "call": 46,
+   "result": 70
+  },
+  "join-006": {
+   "call": 54,
+   "result": 82
+  },
+  "join-007": {
+   "call": 62,
+   "result": 127
+  },
+  "join-008": {
+   "call": 66,
+   "result": 150
+  },
+  "join-009": {
+   "call": 80,
+   "result": 130
+  },
+  "join-010": {
+   "call": 86,
+   "result": 162
+  },
+  "join-011": {
+   "call": 54,
+   "result": 96
+  },
+  "join-012": {
+   "call": 48,
+   "result": 144
+  },
+  "join-013": {
+   "call": 47,
+   "result": 114
+  },
+  "join-014": {
+   "call": 43,
+   "result": 80
+  },
+  "join-015": {
+   "call": 43,
+   "result": 148
+  },
+  "join-016": {
+   "call": 57,
+   "result": 62
+  },
+  "join-017": {
+   "call": 58,
+   "result": 120
+  },
+  "join-018": {
+   "call": 48,
+   "result": 80
+  },
+  "join-019": {
+   "call": 78,
+   "result": 113
+  },
+  "join-020": {
+   "call": 48,
+   "result": 156
+  },
+  "join-021": {
+   "call": 50,
+   "result": 199
+  },
+  "join-022": {
+   "call": 67,
+   "result": 194
+  },
+  "units-001": {
+   "call": 28,
+   "result": 272
+  },
+  "units-002": {
+   "call": 27,
+   "result": 274
+  },
+  "units-003": {
+   "call": 37,
+   "result": 258
+  },
+  "units-004": {
+   "call": 31,
+   "result": 275
+  },
+  "units-005": {
+   "call": 27,
+   "result": 274
+  },
+  "units-006": {
+   "call": 36,
+   "result": 373
+  },
+  "units-007": {
+   "call": 39,
+   "result": 376
+  },
+  "units-008": {
+   "call": 42,
+   "result": 106
+  },
+  "units-009": {
+   "call": 45,
+   "result": 120
+  },
+  "units-010": {
+   "call": 26,
+   "result": 255
+  },
+  "units-011": {
+   "call": 44,
+   "result": 93
+  },
+  "units-012": {
+   "call": 43,
+   "result": 96
+  },
+  "units-013": {
+   "call": 31,
+   "result": 303
+  },
+  "units-014": {
+   "call": 26,
+   "result": 300
+  },
+  "units-015": {
+   "call": 50,
+   "result": 104
+  },
+  "units-016": {
+   "call": 43,
+   "result": 208
+  },
+  "units-017": {
+   "call": 33,
+   "result": 316
+  },
+  "text_date-001": {
+   "call": 29,
+   "result": 218
+  },
+  "text_date-002": {
+   "call": 31,
+   "result": 85
+  },
+  "text_date-003": {
+   "call": 32,
+   "result": 220
+  },
+  "text_date-004": {
+   "call": 33,
+   "result": 82
+  },
+  "text_date-005": {
+   "call": 34,
+   "result": 318
+  },
+  "text_date-006": {
+   "call": 40,
+   "result": 99
+  },
+  "text_date-007": {
+   "call": 26,
+   "result": 227
+  },
+  "text_date-008": {
+   "call": 28,
+   "result": 71
+  },
+  "text_date-009": {
+   "call": 28,
+   "result": 99
+  },
+  "text_date-010": {
+   "call": 30,
+   "result": 181
+  },
+  "text_date-011": {
+   "call": 37,
+   "result": 341
+  },
+  "text_date-012": {
+   "call": 32,
+   "result": 111
+  },
+  "text_date-013": {
+   "call": 32,
+   "result": 330
+  },
+  "text_date-014": {
+   "call": 48,
+   "result": 108
+  },
+  "text_date-015": {
+   "call": 36,
+   "result": 77
+  },
+  "tricky-001": {
+   "call": 38,
+   "result": 62
+  },
+  "tricky-002": {
+   "call": 30,
+   "result": 141
+  },
+  "tricky-003": {
+   "call": 38,
+   "result": 86
+  },
+  "tricky-004": {
+   "call": 30,
+   "result": 119
+  },
+  "tricky-005": {
+   "call": 52,
+   "result": 86
+  },
+  "tricky-006": {
+   "call": 61,
+   "result": 66
+  },
+  "tricky-007": {
+   "call": 55,
+   "result": 64
+  },
+  "tricky-008": {
+   "call": 62,
+   "result": 52
+  },
+  "tricky-009": {
+   "call": 60,
+   "result": 75
+  },
+  "tricky-010": {
+   "call": 43,
+   "result": 55
+  },
+  "tricky-011": {
+   "call": 46,
+   "result": 75
+  },
+  "tricky-012": {
+   "call": 53,
+   "result": 91
+  },
+  "tricky-013": {
+   "call": 47,
+   "result": 86
+  },
+  "tricky-014": {
+   "call": 63,
+   "result": 91
+  },
+  "tricky-015": {
+   "call": 54,
+   "result": 124
+  },
+  "tricky-016": {
+   "call": 42,
+   "result": 61
+  },
+  "clarify-001": {
+   "call": 21,
+   "result": 15
+  },
+  "clarify-002": {
+   "call": 23,
+   "result": 15
+  },
+  "clarify-003": {
+   "call": 20,
+   "result": 15
+  },
+  "clarify-004": {
+   "call": 25,
+   "result": 15
+  },
+  "clarify-005": {
+   "call": 35,
+   "result": 15
+  },
+  "clarify-006": {
+   "call": 23,
+   "result": 15
+  },
+  "clarify-007": {
+   "call": 23,
+   "result": 15
+  },
+  "clarify-008": {
+   "call": 25,
+   "result": 15
+  },
+  "clarify-009": {
+   "call": 24,
+   "result": 15
+  },
+  "clarify-010": {
+   "call": 33,
+   "result": 15
+  },
+  "clarify-011": {
+   "call": 31,
+   "result": 15
+  },
+  "clarify-012": {
+   "call": 20,
+   "result": 15
+  },
+  "clarify-013": {
+   "call": 28,
+   "result": 15
+  },
+  "clarify-014": {
+   "call": 22,
+   "result": 15
+  },
+  "unsupported-001": {
+   "call": 24,
+   "result": 12
+  },
+  "unsupported-002": {
+   "call": 28,
+   "result": 12
+  },
+  "unsupported-003": {
+   "call": 37,
+   "result": 12
+  },
+  "unsupported-004": {
+   "call": 24,
+   "result": 12
+  },
+  "unsupported-005": {
+   "call": 34,
+   "result": 12
+  },
+  "unsupported-006": {
+   "call": 35,
+   "result": 12
+  },
+  "unsupported-007": {
+   "call": 37,
+   "result": 12
+  },
+  "unsupported-008": {
+   "call": 32,
+   "result": 12
+  },
+  "unsupported-009": {
+   "call": 32,
+   "result": 12
+  },
+  "unsupported-010": {
+   "call": 29,
+   "result": 12
+  }
+ }
+}

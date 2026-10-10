@@ -1,0 +1,22 @@
+# Secrets
+.env
+
+# Environments and caches
+.venv/
+__pycache__/
+.pytest_cache/
+
+# Generated training data (rebuilt by datagen/; large)
+data/
+
+# Model weights, logs and run outputs; the scripts in these folders are kept
+adapters/*
+!adapters/*.py
+!adapters/*.sh
+kaggle_job/_bundle/
+kaggle_job/output/
+kaggle_job/*.json
+kaggle_job/*.out
+kaggle_job/*.done
+models/
+kaggle_job/*.log
