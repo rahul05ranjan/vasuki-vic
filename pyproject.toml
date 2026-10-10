@@ -5,7 +5,7 @@ description = "Typed operation plans, a deterministic executor and an eval harne
 readme = "README.md"
 license = "Apache-2.0"
 license-files = ["LICENSE", "NOTICE"]
-requires-python = ">=3.11"
+requires-python = ">=3.11,<3.15"
 # One step to a working `vasuki ask` and `vasuki-mcp`: on Apple silicon the model runner (MLX-LM) comes with
 # the package, and so does the MCP library. The executor itself still imports neither.
 dependencies = [

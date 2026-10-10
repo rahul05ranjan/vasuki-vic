@@ -14,7 +14,7 @@ Under it are two parts: typed operation plans for tabular work with a determinis
 
 A planner (any model, or a person) describes a computation as a JSON plan: a list of steps such as `filter`, `derive`, `aggregate` and `join`. Vasuki checks the whole plan against the input columns, runs it locally, and returns a compact report in place of the data. The planner never does arithmetic and never writes code.
 
-The executor imports nothing outside the standard library. Python 3.11+. Running a VIC model locally uses MLX-LM, which is installed with the package on Apple silicon; on any other machine, point `--url` at a server that has the model (see "Ask in words").
+The executor imports nothing outside the standard library. Python 3.11 to 3.14; `uvx` fetches one if the machine has none. Running a VIC model locally uses MLX-LM, which is installed with the package on Apple silicon; on any other machine, point `--url` at a server that has the model (see "Ask in words").
 
 ## How good the model is
 
