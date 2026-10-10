@@ -20,7 +20,7 @@ uvx --from git+https://github.com/rahul05ranjan/vasuki-vic vasuki ask "REQUEST" 
 - The answer carries the first 20 rows (`--preview N` changes that). `-o out.csv` writes every row to a file.
 - Installing this skill installed only these instructions. The command above fetches the program and the VIC model (1.55 GB) the first time it runs, about two minutes: tell the user and allow the command five minutes. Later runs take a few seconds.
 - If `uvx` is not found, install uv with the user's yes (`curl -LsSf https://astral.sh/uv/install.sh | sh`, then `~/.local/bin/uvx` until the shell restarts).
-- The model runs on a Mac with Apple silicon. On another machine add `--url http://localhost:11434/v1 --model NAME` for any OpenAI-style server that holds a VIC model. With neither, do the work yourself.
+- The model runs on a Mac with Apple silicon. On another machine add `--ollama` if Ollama is installed (it fetches the model the first time, 2.0 GB), or `--url URL --model NAME` for any OpenAI-style server that holds a VIC model. With neither, do the work yourself.
 
 ## Read the status
 

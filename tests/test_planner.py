@@ -4,7 +4,7 @@ import pytest
 
 from vasuki import PlanError, Table, mcp_server
 from vasuki.cli import main
-from vasuki.planner import HTTPPlanner, ask, extract_json, full_system_prompt
+from vasuki.planner import OLLAMA_MODEL, HTTPPlanner, ask, extract_json, full_system_prompt, ollama_planner
 from vasuki.request import VIC_SYSTEM
 
 ORDERS = [
@@ -179,3 +179,42 @@ def test_http_planner_turns_reasoning_off_for_a_vic_model_and_copes_with_a_serve
     refuse = True
     assert HTTPPlanner("http://x.test/v1", "m", reasoning=False).complete("s", "u") == "{}"
     assert "reasoning_effort" in sent[-2] and "reasoning_effort" not in sent[-1]
+
+
+def test_ollama_planner_fetches_a_missing_model_once_and_reports_a_machine_without_ollama(monkeypatch, capsys):
+    import io
+
+    calls, have = [], []
+
+    class Reply(io.BytesIO):
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+    def fake_urlopen(request, timeout):
+        url = request if isinstance(request, str) else request.full_url
+        calls.append(url)
+        if url.endswith("/api/tags"):
+            return Reply(json.dumps({"models": [{"name": name} for name in have]}).encode())
+        have.append(json.loads(request.data)["model"])
+        return Reply(b'{"status": "success"}')
+
+    monkeypatch.setattr("urllib.request.urlopen", fake_urlopen)
+    monkeypatch.delenv("OLLAMA_HOST", raising=False)
+    planner = ollama_planner()
+    assert (planner.url, planner.model) == ("http://localhost:11434/v1/chat/completions", OLLAMA_MODEL)
+    assert not planner.reasoning and [url.rsplit("/", 1)[1] for url in calls] == ["tags", "pull"]
+    assert "once" in capsys.readouterr().err
+    ollama_planner()
+    assert calls[-1].endswith("/api/tags") and len(calls) == 3        # already there: no second fetch
+    monkeypatch.undo()
+    with pytest.raises(PlanError) as raised:
+        ollama_planner(url="http://127.0.0.1:9")
+    assert raised.value.code == "planner_unavailable" and "ollama.com" in raised.value.message
+
+
+def test_cli_ask_takes_ollama_or_a_url_but_not_both(tmp_path, capsys):
+    assert main(["ask", "Total per region.", "-i", write_orders(tmp_path), "--ollama", "--url", "http://x.test/v1"]) == 1
+    assert json.loads(capsys.readouterr().out)["code"] == "invalid_input"

@@ -6,7 +6,7 @@ The agent sends a request in words and file paths. The files are read here, a sm
 the executor runs it, and only the result's first rows go back. The agent never reads the data.
 
 Settings, from the environment:
-  VASUKI_MODEL     the VIC model: a local folder or a Hugging Face name (default: the published preview)
+  VASUKI_MODEL     the VIC model: a local folder or a Hugging Face name (default: the published VIC-2B)
   VASUKI_URL       use an OpenAI-style chat endpoint instead of a local MLX model; VASUKI_MODEL then names the
                    model on that server and VASUKI_API_KEY, if set, is sent as the bearer token
   VASUKI_DESCRIBE  set to 1 to send the full plan format with each request, for a model not trained on it

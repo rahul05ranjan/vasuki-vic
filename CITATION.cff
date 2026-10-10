@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use vasuki or the VIC-2B model, please cite it as below."
+title: "vasuki and VIC-2B: typed plans, a deterministic engine and a small planner model for tabular questions"
+type: software
+authors:
+  - name: "rahul05ranjan"
+version: 1.0.0
+date-released: "2026-10-10"
+license: Apache-2.0
+repository-code: "https://github.com/rahul05ranjan/vasuki-vic"
+url: "https://huggingface.co/rahul05ranjan/VIC-2B"
+keywords:
+  - tabular data
+  - planner
+  - small language model
+  - text-to-plan
+  - local inference

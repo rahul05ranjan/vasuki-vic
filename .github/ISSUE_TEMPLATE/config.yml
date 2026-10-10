@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/rahul05ranjan/vasuki-vic/security/advisories/new
+    about: Please report vulnerabilities privately, not in a public issue.
+  - name: Model card
+    url: https://huggingface.co/rahul05ranjan/VIC-2B
+    about: How VIC-2B was trained and measured, and what it gets wrong.

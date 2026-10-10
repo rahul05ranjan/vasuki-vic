@@ -20,10 +20,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 INCLUDE = [
     "README.md", "LICENSE", "NOTICE", "pyproject.toml", "uv.lock", ".gitignore",
+    "CHANGELOG.md", "CONTRIBUTING.md", "SECURITY.md", "CODE_OF_CONDUCT.md", "CITATION.cff", "docs/*", ".github/*",
     "src/*", "tests/*", "examples/*", "evals/*", "skills/*", "datagen/*.py", "tools/*.py",
     "bench/*.py", "bench/results/*.jsonl", "bench/results/*.json",
     "kaggle_job/*.py", "adapters/*.py",
 ]
+# Tracked files that match INCLUDE and are still left out: one pattern per line in this file, which is
+# itself not part of the public copy.
+EXCLUDE_FILE = ROOT / "tools" / "publish_exclude.txt"
 # Words that must not appear in the public copy: the diary's name, this machine's paths and accounts.
 PRIVATE = re.compile(r"TRACKER|AGENTS\.md|CLAUDE\.md|/Users/|rivansh|rahulswt7|rahulsingh|hf_[A-Za-z0-9]{20,}|KGAT_[A-Za-z0-9]{8,}")
 ALLOWED = {"tools/publish.py"}      # this file names those words in order to refuse them
@@ -35,8 +39,11 @@ def main() -> int:
     out = Path(sys.argv[1]).resolve()
     if out.exists() and any(out.iterdir()):
         sys.exit(f"{out} is not empty")
+    exclude = [line.strip() for line in EXCLUDE_FILE.read_text(encoding="utf-8").splitlines()
+               if line.strip() and not line.startswith("#")] if EXCLUDE_FILE.exists() else []
     tracked = subprocess.run(["git", "ls-files"], cwd=ROOT, capture_output=True, text=True, check=True).stdout.split("\n")
-    chosen = [name for name in tracked if name and any(fnmatch.fnmatch(name, pattern) for pattern in INCLUDE)]
+    chosen = [name for name in tracked if name and any(fnmatch.fnmatch(name, pattern) for pattern in INCLUDE)
+              and not any(fnmatch.fnmatch(name, pattern) for pattern in exclude)]
     found = []
     for name in chosen:
         target = out / name

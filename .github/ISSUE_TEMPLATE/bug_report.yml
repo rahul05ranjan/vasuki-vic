@@ -1,0 +1,34 @@
+name: Bug report
+description: The program fails, or the engine computes something wrong
+labels: [bug]
+body:
+  - type: textarea
+    id: command
+    attributes:
+      label: What you ran
+      description: The full command, or the Python you called.
+      render: sh
+    validations:
+      required: true
+  - type: textarea
+    id: plan
+    attributes:
+      label: The plan
+      description: The plan JSON, if there is one. Add --show-plan to `vasuki ask` to see it.
+      render: json
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected and what you got
+    validations:
+      required: true
+  - type: textarea
+    id: data
+    attributes:
+      label: Data that reproduces it
+      description: Column names and a few rows are enough. Remove anything private.
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, Python version, and how the model runs (MLX, Ollama, another server).

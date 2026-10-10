@@ -29,7 +29,11 @@ def _planner(args):
     """The planner `ask` talks to, and the system prompt that suits it."""
     from . import planner
 
-    if args.url:
+    if args.ollama:
+        if args.url:
+            raise PlanError("invalid_input", "give --ollama or --url, not both")
+        model = planner.ollama_planner(args.model, reasoning=args.describe)
+    elif args.url:
         if not args.model:
             raise PlanError("invalid_input", "--url needs --model, the model's name on that server")
         model = planner.HTTPPlanner(args.url, args.model, api_key=os.environ.get("VASUKI_API_KEY"),
@@ -123,9 +127,12 @@ def main(argv: list[str] | None = None) -> int:
     asking.add_argument("--preview", type=int, default=20, help="rows to print (default 20)")
     asking.add_argument("--show-plan", action="store_true", help="include the plan the model wrote")
     asking.add_argument("--model", help="a VIC model: a local folder or a Hugging Face name (default: $VASUKI_MODEL, "
-                                        "else the published preview). With --url, the model's name on that server")
+                                        "else the published VIC-2B). With --url or --ollama, the model's name on that server")
     asking.add_argument("--url", help="use an OpenAI-style chat endpoint instead of a local MLX model, e.g. "
                                       "http://localhost:11434/v1; $VASUKI_API_KEY is sent if set")
+    asking.add_argument("--ollama", action="store_true",
+                        help="use the Ollama on this machine (macOS, Linux, Windows); the VIC model is fetched "
+                             "into it the first time")
     asking.add_argument("--describe", action="store_true",
                         help="send the full plan format with the request, for a model that was not trained on it")
     inputs = commands.add_parser("eval-inputs", help="print what a planner sees for each eval task, as JSONL")

@@ -1,0 +1,19 @@
+name: Feature request
+description: An operation, function, input format or integration that is missing
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What you are trying to do
+      description: The request or task that cannot be done today.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would solve it
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What you do instead for now

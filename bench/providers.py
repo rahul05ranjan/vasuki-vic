@@ -171,7 +171,7 @@ class CloudflareProvider:
     def __init__(self, model: str, max_tokens: int = 8000, timeout: float = 300):
         account, token = os.environ.get("CLOUDFLARE_ACCOUNT_ID"), os.environ.get("CLOUDFLARE_API_TOKEN")
         if not account or not token:
-            raise FatalProviderError("set CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN (see README.md, Benchmarking a model)")
+            raise FatalProviderError("set CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN (see docs/evaluation.md, Benchmark a model)")
         self.model, self.max_tokens, self.timeout = model, max_tokens, timeout
         # Extra request fields, such as {"reasoning_effort": "low"} for models that reason before answering.
         self.extra: dict = {}

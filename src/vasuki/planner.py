@@ -11,6 +11,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import sys
 import urllib.error
 import urllib.request
 
@@ -20,7 +21,10 @@ from .io import write_table
 from .request import VIC_SYSTEM, planner_input
 from .schema import describe, validate_response
 
-DEFAULT_MODEL = "rahul05ranjan/VIC-2B-preview"
+DEFAULT_MODEL = "rahul05ranjan/VIC-2B"
+# The same model as a GGUF file, which Ollama fetches by this name and runs on macOS, Linux and Windows.
+OLLAMA_MODEL = "hf.co/rahul05ranjan/VIC-2B-GGUF:Q8_0"
+OLLAMA_URL = "http://localhost:11434"
 
 
 def full_system_prompt() -> str:
@@ -41,7 +45,8 @@ class MLXPlanner:
             from mlx_lm import generate, load
         except ImportError:
             raise PlanError("planner_unavailable", "this machine cannot run the model itself (MLX-LM needs a Mac "
-                            "with Apple silicon); point --url at a server that has it, such as Ollama") from None
+                            "with Apple silicon); install Ollama and pass --ollama, or point --url at a "
+                            "server that has the model") from None
         self.model = model or os.environ.get("VASUKI_MODEL") or DEFAULT_MODEL
         self.max_tokens, self._generate = max_tokens, generate
         try:
@@ -98,6 +103,31 @@ class HTTPPlanner:
         request = urllib.request.Request(self.url, json.dumps(body).encode(), headers)
         with urllib.request.urlopen(request, timeout=self.timeout) as response:
             return json.load(response)
+
+
+def ollama_planner(model: str | None = None, url: str | None = None, reasoning: bool = False) -> HTTPPlanner:
+    """A planner on the Ollama running on this machine. A model Ollama does not have yet is fetched first."""
+    model = model or OLLAMA_MODEL
+    base = (url or os.environ.get("OLLAMA_HOST") or OLLAMA_URL).rstrip("/")
+    if "://" not in base:
+        base = "http://" + base
+    try:
+        with urllib.request.urlopen(base + "/api/tags", timeout=10) as response:
+            have = {entry.get("name") for entry in json.load(response).get("models", [])}
+        if not have & {model, model + ":latest"}:
+            print(f"fetching {model} into Ollama; this happens once", file=sys.stderr)
+            pull = urllib.request.Request(base + "/api/pull", json.dumps({"model": model, "stream": False}).encode(),
+                                          {"Content-Type": "application/json"})
+            with urllib.request.urlopen(pull, timeout=3600) as response:
+                status = json.load(response)
+            if status.get("status") != "success":
+                raise PlanError("planner_unavailable", f"Ollama could not fetch {model}: {status.get('error') or status}")
+    except urllib.error.HTTPError as e:
+        raise PlanError("planner_unavailable", f"Ollama at {base} answered {e.code}: {e.reason}") from None
+    except (OSError, ValueError) as e:
+        raise PlanError("planner_unavailable", f"no Ollama at {base} ({type(e).__name__}); install it from "
+                        "https://ollama.com and start it") from None
+    return HTTPPlanner(base + "/v1", model, reasoning=reasoning)
 
 
 def extract_json(text: str):

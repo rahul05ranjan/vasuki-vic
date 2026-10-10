@@ -1,17 +1,37 @@
 [project]
 name = "vasuki"
-version = "0.1.0"
-description = "Typed operation plans, a deterministic executor and an eval harness for VIC (Vasuki Indicus Compute) planner models"
+version = "1.0.0"
+description = "Ask a data file a question in plain words: typed plans, a deterministic engine, and the small VIC model that writes the plans"
 readme = "README.md"
 license = "Apache-2.0"
 license-files = ["LICENSE", "NOTICE"]
 requires-python = ">=3.11,<3.15"
+keywords = ["tabular", "csv", "planner", "small-language-model", "local-llm", "mlx", "ollama", "mcp"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
 # One step to a working `vasuki ask` and `vasuki-mcp`: on Apple silicon the model runner (MLX-LM) comes with
 # the package, and so does the MCP library. The executor itself still imports neither.
 dependencies = [
     "mlx-lm>=0.28; sys_platform == 'darwin' and platform_machine == 'arm64'",
     "mcp>=1.2",
 ]
+
+[project.urls]
+Homepage = "https://github.com/rahul05ranjan/vasuki-vic"
+Documentation = "https://github.com/rahul05ranjan/vasuki-vic/tree/main/docs"
+Model = "https://huggingface.co/rahul05ranjan/VIC-2B"
+Changelog = "https://github.com/rahul05ranjan/vasuki-vic/blob/main/CHANGELOG.md"
+Issues = "https://github.com/rahul05ranjan/vasuki-vic/issues"
 
 [project.optional-dependencies]
 # Kept so that older commands naming these extras still work; both are installed by default now.

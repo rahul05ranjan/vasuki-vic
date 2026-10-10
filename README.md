@@ -1,264 +1,195 @@
+<p align="center">
+  <img src="docs/assets/banner.svg" alt="vasuki: ask a table a question in plain words" width="100%">
+</p>
+
+<p align="center">
+  <a href="https://github.com/rahul05ranjan/vasuki-vic/actions/workflows/ci.yml"><img src="https://github.com/rahul05ranjan/vasuki-vic/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/rahul05ranjan/vasuki-vic/releases"><img src="https://img.shields.io/github/v/release/rahul05ranjan/vasuki-vic?label=release" alt="Release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache_2.0-blue" alt="Apache 2.0"></a>
+  <img src="https://img.shields.io/badge/python-3.11_to_3.14-blue" alt="Python 3.11 to 3.14">
+  <a href="https://huggingface.co/rahul05ranjan/VIC-2B"><img src="https://img.shields.io/badge/model-VIC--2B-ffcc4d?logo=huggingface&logoColor=white" alt="VIC-2B on Hugging Face"></a>
+  <a href="https://huggingface.co/rahul05ranjan/VIC-2B-GGUF"><img src="https://img.shields.io/badge/Ollama-ready-000000?logo=ollama&logoColor=white" alt="Runs in Ollama"></a>
+</p>
+
+<p align="center">
+  <a href="#quickstart">Quickstart</a> ·
+  <a href="#benchmarks">Benchmarks</a> ·
+  <a href="#integrations">Integrations</a> ·
+  <a href="#security-and-data-handling">Security</a> ·
+  <a href="#documentation">Documentation</a> ·
+  <a href="https://huggingface.co/rahul05ranjan/VIC-2B">Model</a>
+</p>
+
 # vasuki
 
-Ask a question about a CSV file in plain words and get the answer as a table, computed on your own machine.
+**Ask a data file a question in plain words and get the answer as a table, computed on your own machine.**
+
+vasuki pairs a small language model with a deterministic engine. **VIC-2B**, a 1.55 GB model, reads your request and a short profile of each table, and writes a typed plan. The engine checks that plan against your columns and runs it. The model never does arithmetic, never writes code, and never sees the whole file.
 
 ```sh
 uvx --from git+https://github.com/rahul05ranjan/vasuki-vic vasuki ask "Total amount per vendor, highest first." -i invoices.csv
 ```
 
-That one line is the whole setup on a Mac with Apple silicon, given [uv](https://docs.astral.sh/uv/). The first run installs the program and downloads the VIC model (1.55 GB, about two minutes); later runs take a few seconds. Nothing leaves the machine.
+## Why vasuki
 
-To have a coding agent (Claude Code, Codex, Cursor) use it by itself, install the skill: `npx skills add rahul05ranjan/vasuki-vic` (see "For agents: the skill").
+| | |
+|---|---|
+| **Local** | The model and the engine both run on your machine. The model is shown column names, types and a few sample values, never the whole file. |
+| **Auditable** | Every answer comes with its plan: a short list of typed steps from 12 operations, which you can read, check and run again. |
+| **Deterministic** | The engine runs plans, not generated code. Expressions are parsed and interpreted against a whitelist; nothing is passed to `eval`. |
+| **Small and fast** | 1.55 GB on disk, well under a second per request on an Apple-silicon laptop once the model is loaded. |
+| **Measured** | On questions real people wrote, VIC-2B plans as well as a 120B-parameter model given the full format description. See [Benchmarks](#benchmarks). |
+| **Open** | Code and model are Apache 2.0. The eval sets, the benchmark harness and every result file are in this repository. |
 
-Under it are two parts: typed operation plans for tabular work with a deterministic executor that runs them (`vasuki`), and a small model that writes those plans from a request ([VIC](https://huggingface.co/rahul05ranjan/VIC-2B-preview)).
+## Quickstart
 
-A planner (any model, or a person) describes a computation as a JSON plan: a list of steps such as `filter`, `derive`, `aggregate` and `join`. Vasuki checks the whole plan against the input columns, runs it locally, and returns a compact report in place of the data. The planner never does arithmetic and never writes code.
+You need [uv](https://docs.astral.sh/uv/). Nothing else is installed by hand.
 
-The executor imports nothing outside the standard library. Python 3.11 to 3.14; `uvx` fetches one if the machine has none. Running a VIC model locally uses MLX-LM, which is installed with the package on Apple silicon; on any other machine, point `--url` at a server that has the model (see "Ask in words").
+**Mac with Apple silicon.** The first run installs the program and downloads the model (1.55 GB, about two minutes). Later runs take a few seconds.
 
-## How good the model is
+```sh
+uvx --from git+https://github.com/rahul05ranjan/vasuki-vic vasuki ask "Total amount per vendor, highest first." -i invoices.csv
+```
 
-Scored by running the model's plan and comparing the resulting table with the expected one. `VIC-2B-preview` is run `k5`, 1.55 GB at 6 bits; the reference is `gpt-oss-120b` given the full format description.
+**macOS, Linux or Windows with [Ollama](https://ollama.com).** Add `--ollama`. The first run fetches the model into Ollama (2.0 GB).
 
-| Set | Tasks | VIC-2B-preview | Reference model |
+```sh
+uvx --from git+https://github.com/rahul05ranjan/vasuki-vic vasuki ask "Total amount per vendor, highest first." -i invoices.csv --ollama
+```
+
+The answer is one JSON object:
+
+```json
+{
+  "status": "ok",
+  "columns": ["vendor", "total_amount"],
+  "row_count": 3,
+  "rows": [["Acme", 2500.0], ["Bolt", 500.5], ["Cora", 0]]
+}
+```
+
+Add `--show-plan` to see the plan the model wrote, and `-o out.csv` to save every row. Inputs can be `.csv`, `.tsv`, `.json` or `.jsonl`; give one `-i` per file, two for a join.
+
+`status` tells you what happened:
+
+| `status` | Meaning |
+|---|---|
+| `ok` | The plan ran. `rows` holds the first rows of the result |
+| `needs_clarification` | The request cannot be planned without more information; `question` says what is missing |
+| `unsupported` | The operations cannot express the request; `reason` says why |
+| `failed` | The model's reply was not a plan that runs |
+
+## How it works
+
+```mermaid
+flowchart LR
+    A["Request in words<br/>+ data files"] --> B["Profile<br/>column names, types,<br/>three sample rows"]
+    B --> C["VIC-2B<br/>writes a typed plan"]
+    C --> D["Engine<br/>checks every column,<br/>type and expression"]
+    D --> E["Engine<br/>runs the plan"]
+    E --> F["Result table<br/>+ the plan that made it"]
+```
+
+A plan is JSON, a list of steps such as `filter`, `derive`, `aggregate` and `join`:
+
+```json
+{"status": "plan", "steps": [
+  {"op": "aggregate", "group_by": ["vendor"], "metrics": [{"as": "total_amount", "fn": "sum", "column": "amount"}]},
+  {"op": "sort", "by": [{"column": "total_amount", "order": "desc"}]}
+]}
+```
+
+The whole plan is resolved against the input columns before any step runs, so a wrong column name fails at once and names the closest match. The engine imports nothing outside the Python standard library. Any planner can write plans for it: VIC, another model, or a person. The format is described in [docs/plan-format.md](docs/plan-format.md).
+
+## Benchmarks
+
+Each task is scored by running the model's plan and comparing the resulting table with the expected one, so any plan that gives the right table counts. VIC-2B is measured as shipped (6-bit, 1.55 GB). The reference is `gpt-oss-120b`, a 120B-parameter model, given the full format description with every request.
+
+| Test set | Tasks | VIC-2B | Reference model |
 |---|---:|---:|---:|
-| Questions real people wrote, from Spider's validation split (`evals/real1`) | 681 | 83.0% | 81.6% |
-| The same kind from a second source, BIRD's dev split (`evals/real2`) | 195 | 66.7% | 65.6% |
-| Hand-written test set, requests that spell out their output (`evals/test1`) | 173 | 82.1% | 93.6% |
-| Development set (`evals/v2`) | 245 | 85.7% | 97.1% |
+| Questions real people wrote, from Spider's validation split (`evals/real1`) | 681 | **83.0%** | 81.6% |
+| The same kind from a second source, BIRD's dev split (`evals/real2`) | 195 | **66.7%** | 65.6% |
+| Hand-written requests that spell out their output (`evals/test1`) | 173 | 82.1% | **93.6%** |
+| Development set (`evals/v2`) | 245 | 85.7% | **97.1%** |
 
-The first two rows ignore column names, because those questions name none; on both, the two models cannot be told apart. The model was trained on Spider's train split, so the second row is the check that the first is not familiarity with Spider's wording.
+- On the first two sets the two models cannot be told apart statistically. Those rows ignore column names, because the questions name none.
+- VIC-2B was trained on Spider's train split, so the BIRD row is the check that the Spider row is not familiarity with Spider's wording. None of BIRD was trained on.
+- On requests that state exactly which columns to return and what to call them, the large model is ahead.
+- VIC-2B reads about 685 tokens and writes about 77 per request on the BIRD set; the reference model needs 3,155 and 509, most of it the format description.
 
-**What that leaves.** About one request in seven gets a plan that runs and returns the wrong table, with no warning. Read the plan (`--show-plan`) when the answer matters; it is short and says exactly which rows and columns were used. This is a preview, not something to rely on unattended.
+Every number can be reproduced: the eval sets are in [`evals/`](evals), the stored model answers in [`bench/results/`](bench/results), and the method in [docs/evaluation.md](docs/evaluation.md).
+
+## Integrations
+
+| Use it from | How |
+|---|---|
+| **Command line** | `vasuki ask`, `vasuki run`, `vasuki check`, `vasuki schema`. See [docs/usage.md](docs/usage.md) |
+| **Python** | `from vasuki import run_plan, load_table` and `from vasuki.planner import MLXPlanner, ask`. See [docs/usage.md](docs/usage.md#from-python) |
+| **Ollama** | `--ollama`, or `ollama pull hf.co/rahul05ranjan/VIC-2B-GGUF:Q8_0`. See [docs/usage.md](docs/usage.md#ollama) |
+| **Any OpenAI-style server** | `--url http://host/v1 --model NAME` (LM Studio, llama.cpp, vLLM, a hosted model) |
+| **Coding agents** | `npx skills add rahul05ranjan/vasuki-vic` installs a skill for Claude Code, Codex, Cursor and others. See [docs/agents.md](docs/agents.md) |
+| **MCP clients** | `vasuki-mcp`, a stdio server with four tools. See [docs/agents.md](docs/agents.md#mcp-server) |
+
+## Security and data handling
+
+- **What the model sees.** For each table: the row count, column names and types, null counts, three sample rows, and the distinct values of text columns that have twenty or fewer. It does not see the rest of the file.
+- **Where it runs.** With the default model or `--ollama`, on your machine. With `--url`, that profile is sent to the server you name, so use a server you trust.
+- **What the engine executes.** Plans only. `where` and `expr` use Python syntax but are parsed to a syntax tree and interpreted against a whitelist of operators and functions. There is no indexing, no slicing and no `eval`.
+- **What it reads and writes.** The input files you name, and the output path you give. The MCP server reads any path a client hands it, with the permissions of whoever started it.
+- **Network use.** vasuki sends no telemetry. The first run downloads the model from Hugging Face, or through Ollama.
+
+Report a vulnerability privately: see [SECURITY.md](SECURITY.md).
+
+## Limitations
+
+- **Wrong answers are silent.** About one plain-language request in seven gets a plan that runs and returns the wrong table. Read the plan (`--show-plan`) when the answer matters; it is short and says exactly which rows and columns were used.
+- **Scope.** Tabular work on files: filter, derive, rename, select, drop, cast, sort, deduplicate, aggregate, join, unit conversion and limit. No SQL sources, no time zones, no currency conversion, no charts.
+- **Harder questions.** Questions that lean on what a column means, as BIRD's do, are right two times in three.
+- **Agents that already run code.** A coding agent with Python on hand will usually write its own script. The skill is for when you ask for it by name, or want the data kept out of the agent's context.
+- **Languages.** English, and Hinglish to a lesser degree.
+- **Hardware.** The built-in runner needs a Mac with Apple silicon. Elsewhere, use Ollama or another server.
+
+## Documentation
+
+| Document | What it covers |
+|---|---|
+| [docs/usage.md](docs/usage.md) | Commands, options, exit codes, Ollama and other servers, the Python API |
+| [docs/plan-format.md](docs/plan-format.md) | The response format, the operations, and engine behaviour worth knowing |
+| [docs/agents.md](docs/agents.md) | The agent skill and the MCP server |
+| [docs/evaluation.md](docs/evaluation.md) | The eval sets, how scoring works, and how to benchmark a model |
+| [Model card](https://huggingface.co/rahul05ranjan/VIC-2B) | Training, evaluation and limits of VIC-2B |
+| [CHANGELOG.md](CHANGELOG.md) | What changed in each release |
 
 ## Names
 
-- **vasuki** is this package: the plan format, the executor and the eval harness. It works with any planner.
-- **VIC** (Vasuki Indicus Compute) is the planner model trained to emit this format. Checkpoints are named `VIC-<size>` by parameter count, for example `VIC-2B` or `VIC-100M`.
+- **vasuki** is this package: the plan format, the engine and the eval harness. It works with any planner.
+- **VIC** (Vasuki Indicus Compute) is the planner model trained to write this format. Models are named `VIC-<size>` by parameter count.
 
-## Try it
+## Contributing
+
+Issues and pull requests are welcome. [CONTRIBUTING.md](CONTRIBUTING.md) explains how to set up, test and propose a change. Please read the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ```sh
+git clone https://github.com/rahul05ranjan/vasuki-vic && cd vasuki-vic
 uv sync
-uv run vasuki run examples/invoice_totals.json -i examples/invoices.csv -o totals.csv
-```
-
-```json
-{
-  "status": "ok",
-  "rows": 3,
-  "columns": ["vendor", "invoices", "amount", "gst"],
-  "steps": [
-    {"op": "deduplicate", "rows_in": 6, "rows_out": 5},
-    {"op": "derive", "rows_in": 5, "rows_out": 5},
-    {"op": "aggregate", "rows_in": 5, "rows_out": 3},
-    {"op": "sort", "rows_in": 3, "rows_out": 3}
-  ],
-  "preview": [...],
-  "output_path": "totals.csv"
-}
-```
-
-## Ask in words
-
-With a VIC model, the plan is written for you:
-
-```sh
-uv run vasuki ask "Total amount and number of invoices per vendor, as amount and invoices, biggest amount first." \
-  -i examples/invoices.csv
-```
-
-In a checkout that is the whole setup too; from any other folder use the `uvx` line at the top of this page.
-
-```json
-{
-  "status": "ok",
-  "columns": ["vendor", "amount", "invoices"],
-  "row_count": 3,
-  "rows": [["Acme", 2500.0, 3], ["Bolt", 500.5, 2], ["Cora", 0, 1]]
-}
-```
-
-The model sees the request and a profile of each table (column names, types, three sample rows), never the whole file. Loading it takes about three seconds; a request then takes well under a second. Add `--show-plan` to see the plan it wrote, and `-o out.csv` to save every row.
-
-The answer's `status` says what happened: `ok`; `needs_clarification` with a `question`; `unsupported` with a `reason`; or `failed` when the model's reply was not a plan that runs. The model is right on about four requests in five (see "How good the model is"), so read the plan when the answer matters.
-
-- `--model` takes a local folder or a Hugging Face name. The default is `$VASUKI_MODEL`, else the published preview.
-- A VIC model in Ollama, for a model you have trained and merged yourself: `uv run python kaggle_job/to_ollama.py --label k5` installs `models/VIC-k5-merged` as `vic-k5`, and `--url http://localhost:11434/v1 --model vic-k5` uses it. `vasuki` turns the model's reasoning off for you; with `ollama run`, pass `--think=false`.
-- `--url http://localhost:11434/v1 --model NAME` uses any server with an OpenAI-style chat endpoint (Ollama, LM Studio, llama.cpp, a hosted model) in place of MLX. Add `--describe` to send the full plan format with the request, which a model not trained on the format needs.
-
-## For agents: the skill
-
-A coding agent that can run a shell command needs no server. The skill in `skills/vasuki` tells it when to hand a question to `vasuki ask`, how to read the answer, and how to check the plan before trusting the rows:
-
-```sh
-npx skills add rahul05ranjan/vasuki-vic
-```
-
-That is the only step. It installs the skill for Claude Code, Codex, Cursor and the other agents the [skills](https://skills.sh) installer knows, and needs Node.js for `npx`.
-
-What it puts on the machine is one file of instructions, `SKILL.md`. The program and the model are not installed by that command: the skill has the agent run the `uvx` line at the top of this page, which fetches both the first time a question is asked (1.55 GB, about two minutes) and takes a few seconds after that. If `uv` is missing, the skill has the agent offer to install it. The model itself still needs a Mac with Apple silicon, or a server given with `--url`.
-
-Then ask the agent in plain words, for example "which vendor has the highest total in invoices.csv?". The agent decides when the skill applies; about one answer in seven is wrong without warning (see "How good the model is"), so the skill has it check the plan before it trusts the rows.
-
-## For agents: the MCP server
-
-`vasuki-mcp` lets an agent (Claude Code, Codex, or any MCP client) hand tabular work to VIC instead of reading data files into its own context. The agent sends a request and file paths; only the first rows of the result come back.
-
-```sh
-claude mcp add vasuki -- uv run --directory /path/to/vasuki vasuki-mcp     # Claude Code
-```
-
-For another client, register the same command as a stdio server:
-
-```json
-{"mcpServers": {"vasuki": {"command": "uv", "args": ["run", "--directory", "/path/to/vasuki", "vasuki-mcp"],
-                           "env": {"VASUKI_MODEL": "rahul05ranjan/VIC-2B-preview"}}}}
-```
-
-| Tool | What it does |
-|---|---|
-| `compute(request, files, output_path?, preview_rows?)` | Plans the request with VIC and runs it. Returns the same answer as `vasuki ask`, with the plan |
-| `describe_tables(files)` | Row count, columns, types and three sample rows per file |
-| `run_plan(steps, files, output_path?, preview_rows?)` | Runs a plan the agent wrote itself, for when `compute` gets it wrong |
-| `plan_format()` | The plan format, for writing plans by hand (about 2,000 tokens) |
-
-The model loads on the first `compute` and stays in memory. `VASUKI_MODEL`, `VASUKI_URL`, `VASUKI_API_KEY` and `VASUKI_DESCRIBE=1` choose the planner, as the flags of `vasuki ask` do. The server reads any file path it is given and writes `output_path`, with the permissions of whoever starts it.
-
-## Commands
-
-| Command | What it does |
-|---|---|
-| `vasuki ask REQUEST -i [NAME=]PATH ... [-o OUT]` | Have a planner model write the plan, then run it |
-| `vasuki run PLAN -i [NAME=]PATH ... [-o OUT]` | Check the plan, run it, print the report |
-| `vasuki check PLAN -i [NAME=]PATH ...` | Check the plan against the input columns only |
-| `vasuki schema` | Print the plan format, ops, expression functions and units as JSON |
-| `vasuki eval-inputs DIR` | Print what a planner sees for each eval task, as JSONL |
-| `vasuki eval DIR PREDICTIONS [--details]` | Score planner responses against an eval set |
-
-`PLAN` is a JSON file, or `-` for stdin. Inputs and outputs can be `.csv`, `.tsv`, `.json` (an array of objects) or `.jsonl`. A table's name defaults to its file stem.
-
-Exit codes: `0` ran, `1` error (for `ask`, also a reply that was not a plan that runs), `3` the response was a clarification request or a refusal.
-
-## The response format
-
-A planner returns one of three things:
-
-```json
-{"status": "plan", "steps": [{"op": "filter", "where": "amount > 100"}]}
-{"status": "needs_clarification", "question": "Is GST included in amount?"}
-{"status": "unsupported", "reason": "needs a currency exchange rate"}
-```
-
-Steps run in order. A step reads the previous step's result unless `input` names a table, and `as` names a step's result so a later step or join can use it. The last step's result is the output.
-
-`vasuki schema` is the reference for the ops and their fields. Its `response_schema` is a JSON Schema, so it can drive constrained decoding.
-
-## Behaviour worth knowing
-
-- **Step names can be reused.** `as` may name a result after an existing table; later steps see the newest one.
-- **Checked before run.** Every column, table, unit and expression is resolved against the input columns before any step runs. A typo in step 5 fails immediately and names the closest match.
-- **Expressions are not `eval`.** `where` and `expr` use Python syntax, parsed to an AST and interpreted against a whitelist. There is no indexing, slicing or `**`. A few Python habits are accepted as other spellings: `round(x, digits=2)`, `x.lower()`, `x.startswith(y)`, `x is null`.
-- **Strict types.** Arithmetic on text is an error, not a coercion. Use `cast`, or `int()` / `float()` in an expression. The one exception is a join key: when it is a number in one table and text in the other, the text is read as the number it spells, as a database would.
-- **Nulls.** They propagate through arithmetic and functions, compare as false, sort last, never match in a join, and are skipped by aggregates.
-- **Rounding** is half-up on the decimal as written: `round(2.675, 2)` is `2.68`.
-- **CSV typing** is per column: all-integer columns become ints, all-numeric become floats, anything else stays text. Values with leading zeros (`01234`) stay text.
-- **No currency units.** Exchange rates are data, so a plan must multiply by an explicit rate.
-
-## Evaluating a planner
-
-`evals/v2` holds 245 held-out tasks over 16 small tables. Each task is a request, its input tables, and a frozen expected result. (`evals/v1` is the first version, kept frozen because earlier model runs were scored on it.)
-
-`evals/test1` is the test set: 173 tasks over 17 tables on subjects that appear in neither `evals/v2` nor the training data. `evals/v2` is where failures are read and acted on; `evals/test1` is only scored, so its number stays an honest estimate. Pass `--tasks evals/test1` to the commands below.
-
-`evals/real1` (681 tasks) and `evals/real_dev` (250 tasks) hold questions written by people who wanted an answer, taken from the Spider text-to-SQL dataset (Yu et al., 2018, CC BY-SA 4.0) with each expected result computed by Spider's own SQL; `evals/from_spider.py` builds them. These questions name no output columns, so read `accuracy_ignoring_column_names` in the report. `real1` is a test set, scored and never steered by; `real_dev` is for reading failures.
-
-`evals/real2` (195 tasks) is a second test set of the same kind from another source, the BIRD benchmark (Li et al., 2023, CC BY-SA 4.0), built by `evals/from_bird.py` under the same rules. Its questions were written by other people about other databases, and each carries BIRD's line of evidence after "Note:". It exists because VIC is trained on Spider's train split, which makes `real1` a measure of Spider-style questions. Scored and never steered by.
-
-```sh
-uv run vasuki eval-inputs evals/v2 > inputs.jsonl      # what the planner sees, one task per line
-# ...run your planner, writing {"id": ..., "response": {...}} per line to predictions.jsonl...
-uv run vasuki eval evals/v2 predictions.jsonl --details
-```
-
-A planner sees the request plus a profile of each table: column names and types, null counts, three sample rows, and the distinct values of text columns with eight or fewer of them. It also needs the format description from `vasuki schema`.
-
-Scoring runs the response and compares the resulting table with the expected one, so any plan that produces the right table is correct. Row order matters only where the request asks for an order, column order never matters, and numbers match within 1e-9. The report gives accuracy overall, by category and by tag, and a second figure that forgives different column names.
-
-| Category | Tasks | What it covers |
-|---|---:|---|
-| `basic` | 46 | One or two simple steps |
-| `derive` | 27 | Row-level arithmetic, conditions, null handling |
-| `aggregate` | 35 | A single grouping step |
-| `multi` | 43 | Several steps on one table, up to seven |
-| `join` | 22 | Two tables, including anti-joins, self-joins, a rank and a running total |
-| `units` | 17 | Conversions, including ones the unit table does not cover |
-| `text_date` | 15 | Text and date functions |
-| `tricky` | 16 | Data where the obvious plan is wrong: text-typed numbers, duplicates, messy casing |
-| `clarify` | 14 | Requests that cannot be planned without more information |
-| `unsupported` | 10 | Requests the operations cannot express |
-
-14 tasks are written in Hinglish and tagged `hinglish`.
-
-`evals/v2/build.py` is the authoring source; run it to regenerate `tables.json` and `tasks.jsonl`. The test suite checks that every gold plan reproduces its frozen result and that removing any single step from a gold plan changes the answer.
-
-**Keep this set held out.** Do not generate training data from these tables or requests.
-
-## Benchmarking a model
-
-`bench/` runs a model over the eval set and reports accuracy and token use. It needs the `bench` dependency group (`anthropic`, `pandas`), which `uv sync` installs by default.
-
-```sh
-uv run python -m bench.run run --arm plan --provider anthropic --model claude-opus-5-5
-uv run python -m bench.run run --arm code --provider anthropic --model claude-opus-5-5
-uv run python -m bench.run delegate --provider anthropic --model claude-opus-5-5
-uv run python -m bench.run report --details
-```
-
-| Piece | What it measures |
-|---|---|
-| `--arm plan` | The model writes vasuki plans. Its accuracy is the ceiling for a planner using this format. |
-| `--arm code` | The model writes pandas itself. This is what a caller spends without a planner. Skips the `unsupported` category. |
-| `delegate` | No model call. Sizes the call a caller would write and the report it would read when delegating. |
-| `report` | Scores every results file and, for a code arm, gives the planner accuracy needed for delegating to break even. |
-
-Providers:
-
-- `cloudflare` needs `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`. It serves Workers AI models (`--model @cf/openai/gpt-oss-120b`) and, with Unified Billing credits on the account, third-party models (`--model anthropic/claude-opus-5-5`).
-- `anthropic` needs `ANTHROPIC_API_KEY`.
-- `ollama` runs a local model, for example `--model gemma4:12b-mlx`.
-
-Credentials can go in a `.env` file in this folder as `KEY=value` lines; the runner reads it and `.gitignore` excludes it.
-
-It runs `evals/v2` unless `--tasks` says otherwise. Results go to `bench/results/<eval set>/<arm>__<model>.jsonl`. A run resumes from that file, so stopping and restarting never repeats a finished task. `--per-category N` runs a small sample first.
-
-The code arm executes model-written Python in a subprocess with a time limit, in an empty temporary directory. It is not isolated from the network or the rest of the file system.
-
-## From Python
-
-```python
-from vasuki import run_plan, check_plan, load_table, PlanError
-
-result = run_plan(plan, {"invoices": load_table("invoices.csv")})
-result.rows, result.columns, result.report()
-```
-
-With a planner model:
-
-```python
-from vasuki.planner import MLXPlanner, ask
-
-planner = MLXPlanner()        # load once, reuse; HTTPPlanner(url, model) talks to an OpenAI-style server instead
-answer = ask(planner, "Unpaid invoices over 500, newest first.", {"invoices": load_table("invoices.csv")})
-answer["status"], answer.get("rows"), answer.get("plan")
-```
-
-## Tests
-
-```sh
 uv run pytest
 ```
 
 ## Licence
 
-The code and the VIC model are released under the Apache License 2.0 (`LICENSE`). Three eval sets are derived from other people's datasets and keep those datasets' licence, CC BY-SA 4.0: `evals/real1` and `evals/real_dev` from Spider (Yu et al., 2018), and `evals/real2` from BIRD (Li et al., 2023). `NOTICE` has the details, including what the model was trained on.
+The code and the VIC-2B model are released under the [Apache License 2.0](LICENSE). Three eval sets are derived from other people's datasets and keep those datasets' licence, CC BY-SA 4.0: `evals/real1` and `evals/real_dev` from Spider (Yu et al., 2018), and `evals/real2` from BIRD (Li et al., 2023). [NOTICE](NOTICE) has the details, including what the model was trained on.
+
+## Citation
+
+```bibtex
+@software{vasuki_vic_2026,
+  title  = {vasuki and VIC-2B: typed plans, a deterministic engine and a small planner model for tabular questions},
+  author = {rahul05ranjan},
+  year   = {2026},
+  url    = {https://github.com/rahul05ranjan/vasuki-vic}
+}
+```
+
+## Acknowledgements
+
+VIC-2B is fine-tuned from [Qwen3.5-2B](https://huggingface.co/Qwen/Qwen3.5-2B) (Alibaba Cloud, Apache 2.0). The real-question eval sets come from [Spider](https://yale-lily.github.io/spider) and [BIRD](https://bird-bench.github.io). Local inference uses [MLX](https://github.com/ml-explore/mlx), [Ollama](https://ollama.com) and [llama.cpp](https://github.com/ggml-org/llama.cpp).
