@@ -20,7 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 INCLUDE = [
     "README.md", "LICENSE", "NOTICE", "pyproject.toml", "uv.lock", ".gitignore",
-    "src/*", "tests/*", "examples/*", "evals/*", "datagen/*.py", "tools/*.py",
+    "src/*", "tests/*", "examples/*", "evals/*", "skills/*", "datagen/*.py", "tools/*.py",
     "bench/*.py", "bench/results/*.jsonl", "bench/results/*.json",
     "kaggle_job/*.py", "adapters/*.py",
 ]

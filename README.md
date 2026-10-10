@@ -8,6 +8,8 @@ uvx --from git+https://github.com/rahul05ranjan/vasuki-vic vasuki ask "Total amo
 
 That one line is the whole setup on a Mac with Apple silicon, given [uv](https://docs.astral.sh/uv/). The first run installs the program and downloads the VIC model (1.55 GB, about two minutes); later runs take a few seconds. Nothing leaves the machine.
 
+To have a coding agent (Claude Code, Codex, Cursor) use it by itself, install the skill: `npx skills add rahul05ranjan/vasuki-vic` (see "For agents: the skill").
+
 Under it are two parts: typed operation plans for tabular work with a deterministic executor that runs them (`vasuki`), and a small model that writes those plans from a request ([VIC](https://huggingface.co/rahul05ranjan/VIC-2B-preview)).
 
 A planner (any model, or a person) describes a computation as a JSON plan: a list of steps such as `filter`, `derive`, `aggregate` and `join`. Vasuki checks the whole plan against the input columns, runs it locally, and returns a compact report in place of the data. The planner never does arithmetic and never writes code.
@@ -84,6 +86,20 @@ The answer's `status` says what happened: `ok`; `needs_clarification` with a `qu
 - `--model` takes a local folder or a Hugging Face name. The default is `$VASUKI_MODEL`, else the published preview.
 - A VIC model in Ollama, for a model you have trained and merged yourself: `uv run python kaggle_job/to_ollama.py --label k5` installs `models/VIC-k5-merged` as `vic-k5`, and `--url http://localhost:11434/v1 --model vic-k5` uses it. `vasuki` turns the model's reasoning off for you; with `ollama run`, pass `--think=false`.
 - `--url http://localhost:11434/v1 --model NAME` uses any server with an OpenAI-style chat endpoint (Ollama, LM Studio, llama.cpp, a hosted model) in place of MLX. Add `--describe` to send the full plan format with the request, which a model not trained on the format needs.
+
+## For agents: the skill
+
+A coding agent that can run a shell command needs no server. The skill in `skills/vasuki` tells it when to hand a question to `vasuki ask`, how to read the answer, and how to check the plan before trusting the rows:
+
+```sh
+npx skills add rahul05ranjan/vasuki-vic
+```
+
+That is the only step. It installs the skill for Claude Code, Codex, Cursor and the other agents the [skills](https://skills.sh) installer knows, and needs Node.js for `npx`.
+
+What it puts on the machine is one file of instructions, `SKILL.md`. The program and the model are not installed by that command: the skill has the agent run the `uvx` line at the top of this page, which fetches both the first time a question is asked (1.55 GB, about two minutes) and takes a few seconds after that. If `uv` is missing, the skill has the agent offer to install it. The model itself still needs a Mac with Apple silicon, or a server given with `--url`.
+
+Then ask the agent in plain words, for example "which vendor has the highest total in invoices.csv?". The agent decides when the skill applies; about one answer in seven is wrong without warning (see "How good the model is"), so the skill has it check the plan before it trusts the rows.
 
 ## For agents: the MCP server
 
