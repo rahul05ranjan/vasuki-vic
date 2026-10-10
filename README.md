@@ -32,7 +32,7 @@ uvx --from git+https://github.com/rahul05ranjan/vasuki-vic vasuki ask "Total amo
 
 ## Why vasuki
 
-| | |
+| Property | What it means |
 |---|---|
 | **Local** | The model and the engine both run on your machine. The model is shown column names, types and a few sample values, never the whole file. |
 | **Auditable** | Every answer comes with its plan: a short list of typed steps from 12 operations, which you can read, check and run again. |
