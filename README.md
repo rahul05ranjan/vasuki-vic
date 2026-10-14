@@ -12,6 +12,12 @@
 </p>
 
 <p align="center">
+  
+[![M8ven Score](https://m8ven.ai/badge/mcp/rahul05ranjan/vasuki-vic)](https://m8ven.ai/mcp/rahul05ranjan/vasuki-vic?s=readme)
+
+</p>
+
+<p align="center">
   <a href="#quickstart">Quickstart</a> ·
   <a href="#benchmarks">Benchmarks</a> ·
   <a href="#integrations">Integrations</a> ·
