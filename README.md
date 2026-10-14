@@ -12,8 +12,8 @@
 </p>
 
 <p align="center">
-  
-[![M8ven Score](https://m8ven.ai/badge/mcp/rahul05ranjan/vasuki-vic)](https://m8ven.ai/mcp/rahul05ranjan/vasuki-vic?s=readme)
+
+[![M8ven Score](https://m8ven.ai/badge/mcp/rahul05ranjan-vasuki-vic-m93mnb?v=257c6e3df89db90d043f92fb34cc8762)](https://m8ven.ai/mcp/rahul05ranjan-vasuki-vic-m93mnb?s=readme)
 
 </p>
 
